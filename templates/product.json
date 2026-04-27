@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -42,7 +33,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "description": {
@@ -52,7 +43,7 @@
         "share": {
           "type": "share",
           "settings": {
-            "share_label": "Share"
+            "share_label": "Compartir"
           }
         }
       },
@@ -79,13 +70,214 @@
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
-        "padding_bottom": 12
+        "padding_bottom": 24
+      }
+    },
+    "benefits": {
+      "type": "multicolumn",
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Calidad garantizada",
+            "text": "<p>Productos seleccionados con estándares de calidad. Cada artículo es revisado antes de ser enviado.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Envío rápido",
+            "text": "<p>Despacho en 24–72 horas con seguimiento en tiempo real hasta tu puerta.</p>"
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Atención cercana",
+            "text": "<p>Soporte directo por WhatsApp y correo. Te respondemos dudas antes y después de tu compra.</p>"
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "title": "Compra protegida",
+            "text": "<p>Garantía de satisfacción. Si algo no está bien, te ayudamos a resolverlo sin complicaciones.</p>"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "title": "Por qué elegirnos",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "description_block": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sobre este producto",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cuéntale a tus clientes la historia detrás de este producto: para quién es, cómo lo usarán y qué lo hace especial.</p><p>Puedes editar este texto desde el Theme Editor seleccionando esta sección.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "specs": {
+      "type": "product-specs",
+      "blocks": {
+        "s1": {
+          "type": "spec",
+          "settings": {
+            "label": "Marca",
+            "value": "<p>Edita este valor desde el Theme Editor.</p>"
+          }
+        },
+        "s2": {
+          "type": "spec",
+          "settings": {
+            "label": "Categoría",
+            "value": "<p>Edita este valor desde el Theme Editor.</p>"
+          }
+        },
+        "s3": {
+          "type": "spec",
+          "settings": {
+            "label": "Disponibilidad",
+            "value": "<p>Stock disponible para envío inmediato.</p>"
+          }
+        },
+        "s4": {
+          "type": "spec",
+          "settings": {
+            "label": "Garantía",
+            "value": "<p>Garantía estándar del producto. Detalles en política de garantías.</p>"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": {
+        "heading": "Especificaciones",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "f1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto tarda el envío?",
+            "row_content": "<p>Procesamos los pedidos en 24 horas hábiles. El tiempo de entrega depende de tu ubicación, normalmente entre 2 y 5 días hábiles dentro del país.</p>"
+          }
+        },
+        "f2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo devolver el producto?",
+            "row_content": "<p>Sí. Tienes hasta 30 días desde la recepción para solicitar la devolución del producto en su empaque original y sin uso.</p>"
+          }
+        },
+        "f3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿El pago es seguro?",
+            "row_content": "<p>Sí. Procesamos los pagos a través de pasarelas certificadas (Shopify Payments, PayPal y otros). Tus datos viajan cifrados.</p>"
+          }
+        },
+        "f4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo contacto al soporte?",
+            "row_content": "<p>Escríbenos por WhatsApp o correo electrónico desde la página de contacto. Te respondemos en horario hábil.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "heading": "Preguntas frecuentes",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "trust": {
+      "type": "multicolumn",
+      "blocks": {
+        "t1": {
+          "type": "column",
+          "settings": {
+            "title": "Envío 24–72h",
+            "text": "<p>Despacho desde nuestro almacén con seguimiento.</p>"
+          }
+        },
+        "t2": {
+          "type": "column",
+          "settings": {
+            "title": "Garantía 30 días",
+            "text": "<p>Devolución sin complicaciones si no quedas satisfecho.</p>"
+          }
+        },
+        "t3": {
+          "type": "column",
+          "settings": {
+            "title": "Pago seguro",
+            "text": "<p>Pasarelas certificadas y datos cifrados de extremo a extremo.</p>"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "title": "Compra con confianza",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "También te puede interesar",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -97,12 +289,17 @@
         "show_vendor": false,
         "show_rating": false,
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
+    "benefits",
+    "description_block",
+    "specs",
+    "faq",
+    "trust",
     "related-products"
   ]
 }

@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "image_banner": {
@@ -49,6 +40,54 @@
         "show_text_below": false
       }
     },
+    "trust_strip": {
+      "type": "multicolumn",
+      "blocks": {
+        "ts1": {
+          "type": "column",
+          "settings": {
+            "title": "Envío 24–72h",
+            "text": "<p>Despacho rápido con seguimiento en todo el país.</p>"
+          }
+        },
+        "ts2": {
+          "type": "column",
+          "settings": {
+            "title": "Pago seguro",
+            "text": "<p>Tarjeta, transferencia y pasarelas certificadas.</p>"
+          }
+        },
+        "ts3": {
+          "type": "column",
+          "settings": {
+            "title": "Garantía 30 días",
+            "text": "<p>Devolución sencilla si no quedas satisfecho.</p>"
+          }
+        },
+        "ts4": {
+          "type": "column",
+          "settings": {
+            "title": "Atención humana",
+            "text": "<p>Soporte directo por WhatsApp y correo.</p>"
+          }
+        }
+      },
+      "block_order": ["ts1", "ts2", "ts3", "ts4"],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 24,
+        "padding_bottom": 24
+      }
+    },
     "catalog_grid": {
       "type": "catalog-grid",
       "settings": {
@@ -64,12 +103,96 @@
         "view_all_label": "Ver todo el catálogo",
         "color_scheme": "scheme-1",
         "padding_top": 56,
+        "padding_bottom": 40
+      }
+    },
+    "brand_story": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Productos elegidos con criterio",
+            "heading_size": "h1"
+          }
+        },
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Nuestra promesa",
+            "text_style": "uppercase",
+            "text_size": "medium"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Curamos cada producto pensando en personas exigentes que valoran calidad, transparencia y un servicio cercano. Sin presión, sin descuentos agresivos: solo cosas que vale la pena tener.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver todo el catálogo",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text", "button"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "home_faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "hf1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto tarda el envío?",
+            "row_content": "<p>Procesamos los pedidos en 24 horas hábiles. La entrega suele tomar entre 2 y 5 días hábiles dentro del país, con seguimiento en tiempo real.</p>"
+          }
+        },
+        "hf2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo devolver un producto?",
+            "row_content": "<p>Sí. Tienes 30 días desde la recepción para solicitar la devolución, siempre que el producto esté sin uso y en su empaque original.</p>"
+          }
+        },
+        "hf3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo puedo contactarlos?",
+            "row_content": "<p>Estamos disponibles por WhatsApp y correo electrónico desde la página de contacto. Te respondemos en horario hábil.</p>"
+          }
+        }
+      },
+      "block_order": ["hf1", "hf2", "hf3"],
+      "settings": {
+        "heading": "Preguntas frecuentes",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 24,
         "padding_bottom": 56
       }
     }
   },
   "order": [
     "image_banner",
-    "catalog_grid"
+    "trust_strip",
+    "catalog_grid",
+    "brand_story",
+    "home_faq"
   ]
 }
