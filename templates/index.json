@@ -6,32 +6,28 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "Aurevia Market",
             "heading_size": "h0"
           }
         },
-        "button": {
-          "type": "buttons",
+        "caption": {
+          "type": "text",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "text": "Productos seleccionados con criterio. Calidad, transparencia y servicio cercano.",
+            "text_style": "body"
           }
         }
       },
       "block_order": [
         "heading",
-        "button"
+        "caption"
       ],
       "settings": {
         "image": "shopify://shop_images/ChatGPT_Image_21_abr_2026_20_00_06.png",
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 55,
         "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
+        "image_behavior": "ambient",
+        "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
         "show_text_box": false,
         "color_scheme": "scheme-premium-gold",
@@ -80,20 +76,20 @@
       "settings": {
         "caption": "Nuestra promesa",
         "title": "Compra con confianza",
-        "subtitle": "",
         "icon_style": "soft",
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
-        "padding_top": 60,
+        "padding_top": 72,
         "padding_bottom": 36
       }
     },
     "catalog_grid": {
       "type": "catalog-grid",
       "settings": {
+        "eyebrow": "Selección Aurevia",
         "title": "Catálogo",
-        "subheading": "Selección curada de productos",
+        "subheading": "Una selección curada de productos pensados para personas exigentes.",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 3,
@@ -103,8 +99,8 @@
         "show_view_all": true,
         "view_all_label": "Ver todo el catálogo",
         "color_scheme": "scheme-1",
-        "padding_top": 32,
-        "padding_bottom": 56
+        "padding_top": 36,
+        "padding_bottom": 64
       }
     },
     "brand_story": {
@@ -113,7 +109,7 @@
         "caption": {
           "type": "caption",
           "settings": {
-            "caption": "Nuestra promesa",
+            "caption": "Filosofía Aurevia",
             "text_style": "uppercase",
             "text_size": "medium"
           }
@@ -134,7 +130,7 @@
         "button": {
           "type": "button",
           "settings": {
-            "button_label": "Ver todo el catálogo",
+            "button_label": "Ver el catálogo",
             "button_link": "shopify://collections/all",
             "button_style_secondary": false
           }
@@ -144,10 +140,10 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-2",
+        "color_scheme": "scheme-premium-gold",
         "full_width": true,
-        "padding_top": 72,
-        "padding_bottom": 72
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "home_faq": {
@@ -185,7 +181,7 @@
         "container_color_scheme": "scheme-2",
         "open_first_collapsible_row": false,
         "padding_top": 56,
-        "padding_bottom": 72
+        "padding_bottom": 80
       }
     }
   },

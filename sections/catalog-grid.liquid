@@ -23,8 +23,11 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient isolate">
   <div class="catalog-grid section-{{ section.id }}-padding">
-    {%- if section.settings.title != blank or section.settings.subheading != blank -%}
+    {%- if section.settings.eyebrow != blank or section.settings.title != blank or section.settings.subheading != blank -%}
       <header class="catalog-grid__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="catalog-grid__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
         {%- if section.settings.title != blank -%}
           <h2 class="catalog-grid__title">{{ section.settings.title | escape }}</h2>
         {%- endif -%}
@@ -112,6 +115,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Selección Aurevia",
+      "label": "Etiqueta superior"
+    },
     {
       "type": "text",
       "id": "title",
