@@ -1,0 +1,245 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --warm: #ffcf4d;
+    --warm-soft: #fff3cc;
+  }
+
+  .solar-benefits {
+    background: #f6f9fc;
+    padding: clamp(56px, 8vw, 88px) 20px;
+  }
+
+  .solar-benefits__container {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .solar-benefits__header {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 48px;
+  }
+
+  .solar-benefits__badge {
+    display: inline-block;
+    background: var(--warm-soft);
+    color: #8a5a00;
+    border: 1px solid #ffe19a;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+
+  .solar-benefits__header h2 {
+    font-size: clamp(28px, 4vw, 46px);
+    line-height: 1.08;
+    margin: 0 0 16px;
+    color: #07111c;
+    letter-spacing: -1px;
+    font-weight: 700;
+  }
+
+  .solar-benefits__header p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #52616f;
+    margin: 0;
+  }
+
+  .solar-benefits__grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    align-items: center;
+  }
+
+  .solar-benefits__image-box {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #eaf1f7);
+    border-radius: 28px;
+    padding: 26px;
+    box-shadow: 0 22px 55px rgba(7, 17, 28, 0.1);
+    border: 1px solid rgba(7, 17, 28, 0.08);
+  }
+
+  .solar-benefits__image {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
+  }
+
+  .solar-benefits__tag {
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    background: rgba(7, 17, 28, 0.86);
+    color: #ffffff;
+    border-radius: 18px;
+    padding: 14px 18px;
+    display: grid;
+    gap: 3px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 207, 77, 0.2);
+  }
+
+  .solar-benefits__tag strong {
+    color: #ffd45c;
+    font-size: 16px;
+  }
+
+  .solar-benefits__tag span {
+    font-size: 14px;
+    color: #e8eef4;
+  }
+
+  .solar-benefits__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .solar-benefits__card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 26px 22px;
+    border: 1px solid rgba(7, 17, 28, 0.08);
+    box-shadow: 0 14px 38px rgba(7, 17, 28, 0.06);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+  }
+
+  .solar-benefits__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 50px rgba(255, 174, 31, 0.18);
+    border-color: rgba(255, 207, 77, 0.5);
+  }
+
+  .solar-benefits__icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--warm-soft), #ffe19a);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 16px;
+    line-height: 1;
+  }
+
+  .solar-benefits__card h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: #07111c;
+    font-weight: 700;
+  }
+
+  .solar-benefits__card p {
+    margin: 0;
+    color: #5b6875;
+    line-height: 1.55;
+    font-size: 14.5px;
+  }
+
+  @media (max-width: 860px) {
+    .solar-benefits__grid {
+      grid-template-columns: 1fr;
+    }
+    .solar-benefits__cards {
+      grid-template-columns: 1fr;
+    }
+    .solar-benefits__header {
+      margin-bottom: 34px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="solar-benefits">
+  <div class="solar-benefits__container">
+    <div class="solar-benefits__header">
+      {%- if section.settings.badge != blank -%}
+        <span class="solar-benefits__badge">{{ section.settings.badge | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p>{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="solar-benefits__grid">
+      <div class="solar-benefits__image-box">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', class: 'solar-benefits__image', alt: section.settings.heading }}
+        {%- else -%}
+          <img src="{{ 'lampara-solar-2.jpg' | asset_url }}" alt="{{ section.settings.heading | escape }}" class="solar-benefits__image" loading="lazy">
+        {%- endif -%}
+        {%- if section.settings.tag_title != blank or section.settings.tag_subtitle != blank -%}
+          <div class="solar-benefits__tag">
+            {%- if section.settings.tag_title != blank -%}<strong>{{ section.settings.tag_title | escape }}</strong>{%- endif -%}
+            {%- if section.settings.tag_subtitle != blank -%}<span>{{ section.settings.tag_subtitle | escape }}</span>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="solar-benefits__cards">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'card' -%}
+            <div class="solar-benefits__card" {{ block.shopify_attributes }}>
+              <div class="solar-benefits__icon">{{ block.settings.icon }}</div>
+              <h3>{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lámpara · Beneficios",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Etiqueta", "default": "Tecnología solar inteligente" },
+    { "type": "textarea", "id": "heading", "label": "Título", "default": "Más luz, más seguridad y cero cables" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Diseñada para iluminar automáticamente tus espacios exteriores cuando más lo necesitas, sin instalaciones complicadas ni consumo eléctrico constante.</p>" },
+    { "type": "header", "content": "Imagen y etiqueta destacada" },
+    { "type": "image_picker", "id": "image", "label": "Imagen del producto" },
+    { "type": "text", "id": "tag_title", "label": "Etiqueta destacada - Título", "default": "4 focos LED" },
+    { "type": "text", "id": "tag_subtitle", "label": "Etiqueta destacada - Subtítulo", "default": "Iluminación amplia y eficiente" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Tarjeta de beneficio",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icono (emoji)", "default": "☀️" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Carga solar automática" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Su panel solar integrado aprovecha la luz del día para funcionar durante la noche." }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Lámpara · Beneficios",
+      "blocks": [
+        { "type": "card", "settings": { "icon": "☀️", "title": "Carga solar automática", "text": "Su panel solar integrado aprovecha la luz del día para funcionar durante la noche." } },
+        { "type": "card", "settings": { "icon": "🚶", "title": "Sensor de movimiento", "text": "Detecta actividad cercana y activa la luz automáticamente para mayor seguridad." } },
+        { "type": "card", "settings": { "icon": "💡", "title": "4 focos de alta visibilidad", "text": "Proporciona una iluminación potente para entradas, patios, jardines y garajes." } },
+        { "type": "card", "settings": { "icon": "🔧", "title": "Instalación sin cables", "text": "Se instala fácilmente en pared, sin necesidad de conexiones eléctricas complejas." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

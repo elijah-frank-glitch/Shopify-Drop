@@ -1,0 +1,297 @@
+{%- style -%}
+  .solar-weather {
+    background: linear-gradient(135deg, #07111c 0%, #10263a 52%, #07111c 100%);
+    padding: clamp(56px, 8vw, 92px) 20px;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .solar-weather::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(255, 207, 77, 0.18), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .solar-weather__container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 46px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .solar-weather__image-wrap {
+    position: relative;
+  }
+
+  .solar-weather__image-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    background: radial-gradient(circle, rgba(255, 207, 77, 0.22), transparent 62%);
+    border-radius: 34px;
+    z-index: 0;
+    filter: blur(8px);
+  }
+
+  .solar-weather__image {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 28px;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .solar-weather__badge {
+    display: inline-block;
+    background: rgba(255, 207, 77, 0.13);
+    color: #ffd45c;
+    border: 1px solid rgba(255, 207, 77, 0.4);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .solar-weather h2 {
+    font-size: clamp(30px, 4.4vw, 50px);
+    line-height: 1.08;
+    margin: 0 0 18px;
+    color: #ffffff;
+    letter-spacing: -1px;
+    font-weight: 700;
+  }
+
+  .solar-weather__text {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #d8e4f0;
+    margin: 0 0 28px;
+  }
+
+  .solar-weather__features {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+
+  .solar-weather__feature {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    padding: 16px;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .solar-weather__feature:hover {
+    background: rgba(255, 207, 77, 0.07);
+    border-color: rgba(255, 207, 77, 0.3);
+    transform: translateX(4px);
+  }
+
+  .solar-weather__feature .icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(255, 207, 77, 0.16);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .solar-weather__feature h3 {
+    margin: 0 0 5px;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .solar-weather__feature p {
+    margin: 0;
+    color: #c5d2df;
+    line-height: 1.5;
+    font-size: 14.5px;
+  }
+
+  .solar-weather__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ffcf4d, #ff9f1c);
+    color: #111111;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    padding: 16px 30px;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(255, 174, 31, 0.32);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .solar-weather__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 42px rgba(255, 174, 31, 0.5);
+  }
+
+  .solar-weather__button svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .solar-weather__button:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 860px) {
+    .solar-weather__container {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+    .solar-weather__content {
+      text-align: center;
+    }
+    .solar-weather__features {
+      text-align: left;
+    }
+    .solar-weather__button {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="solar-weather" id="solar-weather-{{ section.id }}">
+  <div class="solar-weather__container">
+    <div class="solar-weather__image-wrap">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'solar-weather__image', alt: section.settings.heading }}
+      {%- else -%}
+        <img src="{{ 'lampara-solar-3.jpg' | asset_url }}" alt="{{ section.settings.heading | escape }}" class="solar-weather__image" loading="lazy">
+      {%- endif -%}
+    </div>
+
+    <div class="solar-weather__content">
+      {%- if section.settings.badge != blank -%}
+        <span class="solar-weather__badge">{{ section.settings.badge | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="solar-weather__text">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="solar-weather__features">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'feature' -%}
+              <div class="solar-weather__feature" {{ block.shopify_attributes }}>
+                <span class="icon">{{ block.settings.icon }}</span>
+                <div>
+                  <h3>{{ block.settings.title | escape }}</h3>
+                  <p>{{ block.settings.text | escape }}</p>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#comprar' }}" class="solar-weather__button" data-solar-cta>
+          {{ section.settings.button_label | escape }}
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var btn = document.querySelector('#solar-weather-{{ section.id }} [data-solar-cta]');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      var href = btn.getAttribute('href') || '';
+      if (href === '#comprar' || href === '') {
+        e.preventDefault();
+        var target = document.getElementById('comprar')
+          || document.querySelector('product-form')
+          || document.querySelector('form[action*="/cart/add"]')
+          || document.querySelector('[name="add"]');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lámpara · Resistencia",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Etiqueta", "default": "Diseñada para exteriores" },
+    { "type": "textarea", "id": "heading", "label": "Título", "default": "Resistente a lluvia, sol y cambios de clima" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Instálala en exteriores con confianza. Su diseño resistente ayuda a proteger la lámpara frente a condiciones comunes del clima, manteniendo tu entrada, patio o jardín iluminado cuando más lo necesitas.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Imagen del producto" },
+    { "type": "header", "content": "Botón" },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Quiero iluminar mi hogar" },
+    { "type": "url", "id": "button_link", "label": "Enlace (deja en #comprar para scroll al carrito)" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icono (emoji)", "default": "🌧️" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Resistente al agua" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Ideal para zonas expuestas a lluvia y humedad." }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Lámpara · Resistencia",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "🌧️", "title": "Resistente al agua", "text": "Ideal para zonas expuestas a lluvia y humedad." } },
+        { "type": "feature", "settings": { "icon": "☀️", "title": "Protección para exteriores", "text": "Funciona en fachadas, patios, jardines y entradas." } },
+        { "type": "feature", "settings": { "icon": "❄️", "title": "Uso en diferentes temporadas", "text": "Preparada para acompañarte durante todo el año." } },
+        { "type": "feature", "settings": { "icon": "🛡️", "title": "Diseño duradero", "text": "Cuerpo resistente para uso diario en exteriores." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

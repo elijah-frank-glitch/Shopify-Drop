@@ -1,0 +1,323 @@
+{%- liquid
+  assign step_index = 0
+  assign place_index = 0
+-%}
+{%- style -%}
+  .solar-install {
+    background: #ffffff;
+    padding: clamp(56px, 8vw, 92px) 20px;
+  }
+
+  .solar-install__container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 46px;
+    align-items: center;
+  }
+
+  .solar-install__badge {
+    display: inline-block;
+    background: #e9f6ff;
+    color: #12608f;
+    border: 1px solid #ccecff;
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+
+  .solar-install h2 {
+    font-size: clamp(30px, 4.4vw, 50px);
+    line-height: 1.08;
+    margin: 0 0 18px;
+    color: #07111c;
+    letter-spacing: -1px;
+    font-weight: 700;
+  }
+
+  .solar-install__text {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #52616f;
+    margin: 0 0 28px;
+  }
+
+  .solar-install__steps {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 30px;
+  }
+
+  .solar-install__step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 15px;
+    align-items: flex-start;
+    background: #f6f9fc;
+    border: 1px solid rgba(7, 17, 28, 0.08);
+    border-radius: 18px;
+    padding: 17px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .solar-install__step:hover {
+    transform: translateX(4px);
+    border-color: rgba(255, 174, 31, 0.35);
+    box-shadow: 0 14px 30px rgba(255, 174, 31, 0.12);
+  }
+
+  .solar-install__step strong {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ffcf4d, #ff9f1c);
+    color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 0 8px 18px rgba(255, 174, 31, 0.32);
+  }
+
+  .solar-install__step h3 {
+    margin: 0 0 6px;
+    color: #07111c;
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .solar-install__step p {
+    margin: 0;
+    color: #5b6875;
+    line-height: 1.5;
+    font-size: 14.5px;
+  }
+
+  .solar-install__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #07111c;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    padding: 16px 32px;
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(7, 17, 28, 0.24);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .solar-install__button:hover {
+    transform: translateY(-3px);
+    background: #0e1d2e;
+    box-shadow: 0 18px 42px rgba(7, 17, 28, 0.34);
+  }
+
+  .solar-install__button svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .solar-install__button:hover svg {
+    transform: translateX(4px);
+  }
+
+  .solar-install__visual {
+    position: relative;
+    background: linear-gradient(145deg, #f6f9fc, #eaf1f7);
+    border-radius: 30px;
+    padding: 24px;
+    border: 1px solid rgba(7, 17, 28, 0.08);
+    box-shadow: 0 24px 58px rgba(7, 17, 28, 0.1);
+  }
+
+  .solar-install__image {
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 22px;
+  }
+
+  .solar-install__places {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+    display: grid;
+    grid-template-columns: repeat(var(--places-count, 4), 1fr);
+    gap: 8px;
+  }
+
+  .solar-install__places div {
+    background: rgba(7, 17, 28, 0.85);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 10px 8px;
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 207, 77, 0.18);
+  }
+
+  @media (max-width: 860px) {
+    .solar-install__container {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+    .solar-install__content {
+      text-align: center;
+    }
+    .solar-install__steps {
+      text-align: left;
+    }
+    .solar-install__button {
+      width: 100%;
+      max-width: 360px;
+    }
+    .solar-install__places {
+      position: static;
+      margin-top: 14px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+{%- endstyle -%}
+
+<section class="solar-install" id="solar-install-{{ section.id }}">
+  <div class="solar-install__container">
+    <div class="solar-install__content">
+      {%- if section.settings.badge != blank -%}
+        <span class="solar-install__badge">{{ section.settings.badge | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="solar-install__text">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      <div class="solar-install__steps">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- assign step_index = step_index | plus: 1 -%}
+            <div class="solar-install__step" {{ block.shopify_attributes }}>
+              <strong>{{ step_index }}</strong>
+              <div>
+                <h3>{{ block.settings.title | escape }}</h3>
+                <p>{{ block.settings.text | escape }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#comprar' }}" class="solar-install__button" data-solar-cta>
+          {{ section.settings.button_label | escape }}
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="solar-install__visual">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'solar-install__image', alt: section.settings.heading }}
+      {%- else -%}
+        <img src="{{ 'lampara-solar-1.jpg' | asset_url }}" alt="{{ section.settings.heading | escape }}" class="solar-install__image" loading="lazy">
+      {%- endif -%}
+
+      {%- assign place_blocks = section.blocks | where: 'type', 'place' -%}
+      {%- if place_blocks.size > 0 -%}
+        <div class="solar-install__places" style="--places-count: {{ place_blocks.size }};">
+          {%- for block in place_blocks -%}
+            <div {{ block.shopify_attributes }}>{{ block.settings.icon }} {{ block.settings.label | escape }}</div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var btn = document.querySelector('#solar-install-{{ section.id }} [data-solar-cta]');
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      var href = btn.getAttribute('href') || '';
+      if (href === '#comprar' || href === '') {
+        e.preventDefault();
+        var target = document.getElementById('comprar')
+          || document.querySelector('product-form')
+          || document.querySelector('form[action*="/cart/add"]')
+          || document.querySelector('[name="add"]');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Lámpara · Instalación",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Etiqueta", "default": "Instalación fácil" },
+    { "type": "textarea", "id": "heading", "label": "Título", "default": "Colócala en minutos y úsala en cualquier exterior" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>No necesitas cables ni instalaciones complicadas. Solo fija la lámpara en una pared con buena exposición al sol y deja que ilumine automáticamente tus espacios por la noche.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Imagen de uso/instalación" },
+    { "type": "header", "content": "Botón" },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Comprar ahora" },
+    { "type": "url", "id": "button_link", "label": "Enlace (deja en #comprar para scroll al carrito)" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso de instalación",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Elige el lugar ideal" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Instálala en una zona exterior con luz solar durante el día." }
+      ]
+    },
+    {
+      "type": "place",
+      "name": "Lugar de uso (etiqueta inferior)",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icono (emoji)", "default": "🏠" },
+        { "type": "text", "id": "label", "label": "Texto", "default": "Fachada" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Lámpara · Instalación",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Elige el lugar ideal", "text": "Instálala en una zona exterior con luz solar durante el día." } },
+        { "type": "step", "settings": { "title": "Fíjala en la pared", "text": "Perfecta para fachadas, entradas, patios, garajes y jardines." } },
+        { "type": "step", "settings": { "title": "Disfruta luz automática", "text": "El sensor detecta movimiento y activa la iluminación cuando la necesitas." } },
+        { "type": "place", "settings": { "icon": "🏠", "label": "Fachada" } },
+        { "type": "place", "settings": { "icon": "🚗", "label": "Garaje" } },
+        { "type": "place", "settings": { "icon": "🌿", "label": "Jardín" } },
+        { "type": "place", "settings": { "icon": "🚪", "label": "Entrada" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

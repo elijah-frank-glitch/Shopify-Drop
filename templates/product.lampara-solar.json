@@ -20,6 +20,60 @@
         "floating_subtitle": "Ideal para exteriores"
       }
     },
+    "benefits": {
+      "type": "solar-benefits",
+      "blocks": {
+        "c1": { "type": "card", "settings": { "icon": "☀️", "title": "Carga solar automática", "text": "Su panel solar integrado aprovecha la luz del día para funcionar durante la noche." } },
+        "c2": { "type": "card", "settings": { "icon": "🚶", "title": "Sensor de movimiento", "text": "Detecta actividad cercana y activa la luz automáticamente para mayor seguridad." } },
+        "c3": { "type": "card", "settings": { "icon": "💡", "title": "4 focos de alta visibilidad", "text": "Proporciona una iluminación potente para entradas, patios, jardines y garajes." } },
+        "c4": { "type": "card", "settings": { "icon": "🔧", "title": "Instalación sin cables", "text": "Se instala fácilmente en pared, sin necesidad de conexiones eléctricas complejas." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "badge": "Tecnología solar inteligente",
+        "heading": "Más luz, más seguridad y cero cables",
+        "subtitle": "<p>Diseñada para iluminar automáticamente tus espacios exteriores cuando más lo necesitas, sin instalaciones complicadas ni consumo eléctrico constante.</p>",
+        "tag_title": "4 focos LED",
+        "tag_subtitle": "Iluminación amplia y eficiente"
+      }
+    },
+    "weather": {
+      "type": "solar-weather",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "icon": "🌧️", "title": "Resistente al agua", "text": "Ideal para zonas expuestas a lluvia y humedad." } },
+        "f2": { "type": "feature", "settings": { "icon": "☀️", "title": "Protección para exteriores", "text": "Funciona en fachadas, patios, jardines y entradas." } },
+        "f3": { "type": "feature", "settings": { "icon": "❄️", "title": "Uso en diferentes temporadas", "text": "Preparada para acompañarte durante todo el año." } },
+        "f4": { "type": "feature", "settings": { "icon": "🛡️", "title": "Diseño duradero", "text": "Cuerpo resistente para uso diario en exteriores." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "badge": "Diseñada para exteriores",
+        "heading": "Resistente a lluvia, sol y cambios de clima",
+        "subtitle": "<p>Instálala en exteriores con confianza. Su diseño resistente ayuda a proteger la lámpara frente a condiciones comunes del clima, manteniendo tu entrada, patio o jardín iluminado cuando más lo necesitas.</p>",
+        "button_label": "Quiero iluminar mi hogar",
+        "button_link": "#comprar"
+      }
+    },
+    "install": {
+      "type": "solar-install",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Elige el lugar ideal", "text": "Instálala en una zona exterior con luz solar durante el día." } },
+        "s2": { "type": "step", "settings": { "title": "Fíjala en la pared", "text": "Perfecta para fachadas, entradas, patios, garajes y jardines." } },
+        "s3": { "type": "step", "settings": { "title": "Disfruta luz automática", "text": "El sensor detecta movimiento y activa la iluminación cuando la necesitas." } },
+        "p1": { "type": "place", "settings": { "icon": "🏠", "label": "Fachada" } },
+        "p2": { "type": "place", "settings": { "icon": "🚗", "label": "Garaje" } },
+        "p3": { "type": "place", "settings": { "icon": "🌿", "label": "Jardín" } },
+        "p4": { "type": "place", "settings": { "icon": "🚪", "label": "Entrada" } }
+      },
+      "block_order": ["s1", "s2", "s3", "p1", "p2", "p3", "p4"],
+      "settings": {
+        "badge": "Instalación fácil",
+        "heading": "Colócala en minutos y úsala en cualquier exterior",
+        "subtitle": "<p>No necesitas cables ni instalaciones complicadas. Solo fija la lámpara en una pared con buena exposición al sol y deja que ilumine automáticamente tus espacios por la noche.</p>",
+        "button_label": "Comprar ahora",
+        "button_link": "#comprar"
+      }
+    },
     "comprar": {
       "type": "main-product",
       "blocks": {
@@ -45,10 +99,10 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 56,
-        "padding_bottom": 56
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
-  "order": ["hero", "comprar"]
+  "order": ["hero", "benefits", "weather", "install", "comprar"]
 }
