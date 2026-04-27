@@ -1,6 +1,26 @@
 {
   "sections": {
-    "main": {
+    "hero": {
+      "type": "lampara-hero",
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "text": "4 focos LED de alta visibilidad" } },
+        "b2": { "type": "benefit", "settings": { "text": "Sensor de movimiento integrado" } },
+        "b3": { "type": "benefit", "settings": { "text": "Funciona con energía solar" } },
+        "b4": { "type": "benefit", "settings": { "text": "Resistente a lluvia y clima exterior" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "badge": "Lámpara Solar de Pared · 4 Focos LED",
+        "heading": "Ilumina y protege tu hogar automáticamente con energía solar",
+        "subtitle": "<p>La Lámpara Solar de Pared de 4 Focos se carga con el sol durante el día y enciende su luz al detectar movimiento, ideal para entradas, patios, jardines, garajes y fachadas.</p>",
+        "button_label": "Comprar ahora",
+        "button_link": "#comprar",
+        "note": "Ahorra energía y mejora la seguridad de tus espacios exteriores.",
+        "floating_title": "Encendido automático",
+        "floating_subtitle": "Ideal para exteriores"
+      }
+    },
+    "comprar": {
       "type": "main-product",
       "blocks": {
         "vendor": { "type": "text", "settings": { "text": "{{ product.vendor }}", "text_style": "uppercase" } },
@@ -25,122 +45,10 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 24
-      }
-    },
-    "features": {
-      "type": "feature-icons",
-      "blocks": {
-        "f1": { "type": "feature", "settings": { "icon": "sun", "title": "Carga 100% solar", "text": "<p>Panel solar integrado de alta eficiencia que carga la batería interna durante el día.</p>" } },
-        "f2": { "type": "feature", "settings": { "icon": "eye", "title": "Sensor de movimiento", "text": "<p>Detección PIR de hasta 8 metros con encendido automático al detectar presencia.</p>" } },
-        "f3": { "type": "feature", "settings": { "icon": "droplet", "title": "Resistencia IP65", "text": "<p>Carcasa resistente al agua, polvo y rayos UV. Apta para exteriores todo el año.</p>" } },
-        "f4": { "type": "feature", "settings": { "icon": "bolt", "title": "4 focos LED orientables", "text": "<p>Cobertura de 270° con focos ajustables independientemente para áreas amplias.</p>" } }
-      },
-      "block_order": ["f1", "f2", "f3", "f4"],
-      "settings": {
-        "caption": "Características",
-        "title": "Tecnología solar para tu hogar",
-        "subtitle": "",
-        "icon_style": "soft",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "padding_top": 60,
-        "padding_bottom": 36
-      }
-    },
-    "description_block": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Iluminación inteligente sin cables", "heading_size": "h2" } },
-        "text": { "type": "text", "settings": { "text": "<p>Lámpara solar de pared con 4 focos LED orientables, panel solar integrado y sensor de movimiento. Diseñada para iluminar entradas, garajes, jardines y patios sin necesidad de instalación eléctrica.</p><p>Carga durante el día y se enciende automáticamente al detectar movimiento por la noche, ofreciendo seguridad y comodidad con cero coste energético.</p>" } }
-      },
-      "block_order": ["heading", "text"],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
-    "specs": {
-      "type": "product-specs",
-      "blocks": {
-        "s1": { "type": "spec", "settings": { "label": "Luminosidad", "value": "<p>Hasta 600 lúmenes (4 focos LED).</p>" } },
-        "s2": { "type": "spec", "settings": { "label": "Batería", "value": "<p>Litio recargable 2200 mAh.</p>" } },
-        "s3": { "type": "spec", "settings": { "label": "Tiempo de carga", "value": "<p>6–8 horas de luz solar directa.</p>" } },
-        "s4": { "type": "spec", "settings": { "label": "Autonomía", "value": "<p>Hasta 12 horas con activaciones por sensor.</p>" } },
-        "s5": { "type": "spec", "settings": { "label": "Sensor", "value": "<p>PIR — alcance hasta 8 m, ángulo 120°.</p>" } },
-        "s6": { "type": "spec", "settings": { "label": "Material", "value": "<p>ABS resistente a UV con disipador de aluminio.</p>" } },
-        "s7": { "type": "spec", "settings": { "label": "Resistencia", "value": "<p>IP65 (polvo y agua).</p>" } },
-        "s8": { "type": "spec", "settings": { "label": "Dimensiones", "value": "<p>Aprox. 22 × 12 × 6 cm.</p>" } }
-      },
-      "block_order": ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"],
-      "settings": { "heading": "Ficha técnica", "color_scheme": "scheme-1", "padding_top": 32, "padding_bottom": 48 }
-    },
-    "faq": {
-      "type": "collapsible-content",
-      "blocks": {
-        "q1": { "type": "collapsible_row", "settings": { "heading": "¿Cómo se instala?", "row_content": "<p>Se fija con tornillos a una pared exterior. Sin cables ni electricista. Orientarla hacia el sol para óptima carga.</p>" } },
-        "q2": { "type": "collapsible_row", "settings": { "heading": "¿Funciona en días nublados?", "row_content": "<p>Sí, aunque la carga es menor. Recomendamos colocarla en una zona con varias horas de luz directa.</p>" } },
-        "q3": { "type": "collapsible_row", "settings": { "heading": "¿Resiste lluvia y nieve?", "row_content": "<p>Sí. Su clasificación IP65 la protege frente a lluvia, polvo y temperaturas extremas en uso normal exterior.</p>" } },
-        "q4": { "type": "collapsible_row", "settings": { "heading": "¿Cuánto dura la batería en el tiempo?", "row_content": "<p>La batería de litio mantiene su capacidad por 1.000+ ciclos en condiciones normales, aproximadamente 2–3 años de uso continuo.</p>" } },
-        "q5": { "type": "collapsible_row", "settings": { "heading": "¿Qué incluye la caja?", "row_content": "<p>Lámpara, kit de tornillería, manual y guía rápida de instalación.</p>" } }
-      },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
-      "settings": {
-        "heading": "Preguntas frecuentes",
-        "heading_size": "h2",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "scheme-1",
-        "container_color_scheme": "scheme-2",
-        "open_first_collapsible_row": true,
-        "padding_top": 48,
-        "padding_bottom": 56
-      }
-    },
-    "trust": {
-      "type": "feature-icons",
-      "blocks": {
-        "t1": { "type": "feature", "settings": { "icon": "shield", "title": "Garantía 12 meses", "text": "<p>Cubrimos defectos de fabricación durante un año desde la compra.</p>" } },
-        "t2": { "type": "feature", "settings": { "icon": "truck", "title": "Envío gratis", "text": "<p>Envío gratuito en pedidos superiores al mínimo, con seguimiento.</p>" } },
-        "t3": { "type": "feature", "settings": { "icon": "phone", "title": "Soporte técnico", "text": "<p>Atención post-venta para instalación, dudas y reposiciones.</p>" } }
-      },
-      "block_order": ["t1", "t2", "t3"],
-      "settings": {
-        "caption": "",
-        "title": "Compra con confianza",
-        "subtitle": "",
-        "icon_style": "accent",
-        "columns_desktop": 3,
-        "columns_mobile": "1",
-        "color_scheme": "scheme-2",
         "padding_top": 56,
         "padding_bottom": 56
       }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "También te puede interesar",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
-  "order": ["main", "features", "description_block", "specs", "faq", "trust", "related-products"]
+  "order": ["hero", "comprar"]
 }
