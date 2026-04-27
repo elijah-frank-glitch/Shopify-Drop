@@ -1,306 +1,104 @@
 {
   "sections": {
-    "main": {
-      "type": "main-product",
+    "hero": {
+      "type": "lampara-hero",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Compartir"
-          }
-        }
-      },
-      "block_order": [
-        "vendor",
-        "title",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "share"
-      ],
-      "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 24
-      }
-    },
-    "benefits": {
-      "type": "feature-icons",
-      "blocks": {
-        "b1": {
-          "type": "feature",
-          "settings": {
-            "icon": "shield",
-            "title": "Calidad garantizada",
-            "text": "<p>Productos seleccionados con estándares estrictos. Cada artículo se revisa antes de ser enviado.</p>"
-          }
-        },
-        "b2": {
-          "type": "feature",
-          "settings": {
-            "icon": "truck",
-            "title": "Envío rápido",
-            "text": "<p>Despacho en 24–72 horas con seguimiento en tiempo real hasta tu puerta.</p>"
-          }
-        },
-        "b3": {
-          "type": "feature",
-          "settings": {
-            "icon": "chat",
-            "title": "Atención cercana",
-            "text": "<p>Soporte directo por WhatsApp y correo. Te respondemos antes y después de tu compra.</p>"
-          }
-        },
-        "b4": {
-          "type": "feature",
-          "settings": {
-            "icon": "heart",
-            "title": "Compra protegida",
-            "text": "<p>Garantía de satisfacción. Si algo no está bien, te ayudamos a resolverlo.</p>"
-          }
-        }
+        "b1": { "type": "benefit", "settings": { "text": "4 focos LED de alta visibilidad" } },
+        "b2": { "type": "benefit", "settings": { "text": "Sensor de movimiento integrado" } },
+        "b3": { "type": "benefit", "settings": { "text": "Funciona con energía solar" } },
+        "b4": { "type": "benefit", "settings": { "text": "Resistente a lluvia y clima exterior" } }
       },
       "block_order": ["b1", "b2", "b3", "b4"],
       "settings": {
-        "caption": "Nuestra promesa",
-        "title": "Por qué elegirnos",
-        "subtitle": "",
-        "icon_style": "soft",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "padding_top": 60,
-        "padding_bottom": 36
+        "badge": "Lámpara Solar de Pared · 4 Focos LED",
+        "heading": "Ilumina y protege tu hogar automáticamente con energía solar",
+        "subtitle": "<p>La Lámpara Solar de Pared de 4 Focos se carga con el sol durante el día y enciende su luz al detectar movimiento, ideal para entradas, patios, jardines, garajes y fachadas.</p>",
+        "button_label": "Comprar ahora",
+        "button_link": "#comprar",
+        "note": "Ahorra energía y mejora la seguridad de tus espacios exteriores.",
+        "floating_title": "Encendido automático",
+        "floating_subtitle": "Ideal para exteriores"
       }
     },
-    "description_block": {
-      "type": "rich-text",
+    "benefits": {
+      "type": "solar-benefits",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Sobre este producto",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Cuéntale a tus clientes la historia detrás de este producto: para quién es, cómo lo usarán y qué lo hace especial.</p><p>Puedes editar este texto desde el Theme Editor seleccionando esta sección.</p>"
-          }
-        }
+        "c1": { "type": "card", "settings": { "icon": "☀️", "title": "Carga solar automática", "text": "Su panel solar integrado aprovecha la luz del día para funcionar durante la noche." } },
+        "c2": { "type": "card", "settings": { "icon": "🚶", "title": "Sensor de movimiento", "text": "Detecta actividad cercana y activa la luz automáticamente para mayor seguridad." } },
+        "c3": { "type": "card", "settings": { "icon": "💡", "title": "4 focos de alta visibilidad", "text": "Proporciona una iluminación potente para entradas, patios, jardines y garajes." } },
+        "c4": { "type": "card", "settings": { "icon": "🔧", "title": "Instalación sin cables", "text": "Se instala fácilmente en pared, sin necesidad de conexiones eléctricas complejas." } }
       },
-      "block_order": ["heading", "text"],
+      "block_order": ["c1", "c2", "c3", "c4"],
       "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "left",
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 32,
-        "padding_bottom": 32
+        "badge": "Tecnología solar inteligente",
+        "heading": "Más luz, más seguridad y cero cables",
+        "subtitle": "<p>Diseñada para iluminar automáticamente tus espacios exteriores cuando más lo necesitas, sin instalaciones complicadas ni consumo eléctrico constante.</p>",
+        "tag_title": "4 focos LED",
+        "tag_subtitle": "Iluminación amplia y eficiente"
       }
     },
-    "specs": {
-      "type": "product-specs",
+    "weather": {
+      "type": "solar-weather",
       "blocks": {
-        "s1": {
-          "type": "spec",
-          "settings": {
-            "label": "Marca",
-            "value": "<p>Edita este valor desde el Theme Editor.</p>"
-          }
-        },
-        "s2": {
-          "type": "spec",
-          "settings": {
-            "label": "Categoría",
-            "value": "<p>Edita este valor desde el Theme Editor.</p>"
-          }
-        },
-        "s3": {
-          "type": "spec",
-          "settings": {
-            "label": "Disponibilidad",
-            "value": "<p>Stock disponible para envío inmediato.</p>"
-          }
-        },
-        "s4": {
-          "type": "spec",
-          "settings": {
-            "label": "Garantía",
-            "value": "<p>Garantía estándar del producto. Detalles en política de garantías.</p>"
-          }
-        }
-      },
-      "block_order": ["s1", "s2", "s3", "s4"],
-      "settings": {
-        "heading": "Especificaciones",
-        "color_scheme": "scheme-1",
-        "padding_top": 32,
-        "padding_bottom": 48
-      }
-    },
-    "faq": {
-      "type": "collapsible-content",
-      "blocks": {
-        "f1": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Cuánto tarda el envío?",
-            "row_content": "<p>Procesamos los pedidos en 24 horas hábiles. El tiempo de entrega depende de tu ubicación, normalmente entre 2 y 5 días hábiles dentro del país.</p>"
-          }
-        },
-        "f2": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Puedo devolver el producto?",
-            "row_content": "<p>Sí. Tienes hasta 30 días desde la recepción para solicitar la devolución del producto en su empaque original y sin uso.</p>"
-          }
-        },
-        "f3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿El pago es seguro?",
-            "row_content": "<p>Sí. Procesamos los pagos a través de pasarelas certificadas. Tus datos viajan cifrados de extremo a extremo.</p>"
-          }
-        },
-        "f4": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Cómo contacto al soporte?",
-            "row_content": "<p>Escríbenos por WhatsApp o correo electrónico desde la página de contacto. Te respondemos en horario hábil.</p>"
-          }
-        }
+        "f1": { "type": "feature", "settings": { "icon": "🌧️", "title": "Resistente al agua", "text": "Ideal para zonas expuestas a lluvia y humedad." } },
+        "f2": { "type": "feature", "settings": { "icon": "☀️", "title": "Protección para exteriores", "text": "Funciona en fachadas, patios, jardines y entradas." } },
+        "f3": { "type": "feature", "settings": { "icon": "❄️", "title": "Uso en diferentes temporadas", "text": "Preparada para acompañarte durante todo el año." } },
+        "f4": { "type": "feature", "settings": { "icon": "🛡️", "title": "Diseño duradero", "text": "Cuerpo resistente para uso diario en exteriores." } }
       },
       "block_order": ["f1", "f2", "f3", "f4"],
       "settings": {
-        "heading": "Preguntas frecuentes",
-        "heading_size": "h2",
-        "heading_alignment": "center",
-        "layout": "none",
-        "color_scheme": "scheme-1",
-        "container_color_scheme": "scheme-2",
-        "open_first_collapsible_row": true,
-        "padding_top": 48,
-        "padding_bottom": 56
+        "badge": "Diseñada para exteriores",
+        "heading": "Resistente a lluvia, sol y cambios de clima",
+        "subtitle": "<p>Instálala en exteriores con confianza. Su diseño resistente ayuda a proteger la lámpara frente a condiciones comunes del clima, manteniendo tu entrada, patio o jardín iluminado cuando más lo necesitas.</p>",
+        "button_label": "Quiero iluminar mi hogar",
+        "button_link": "#comprar"
       }
     },
-    "trust": {
-      "type": "feature-icons",
+    "install": {
+      "type": "solar-install",
       "blocks": {
-        "t1": {
-          "type": "feature",
-          "settings": {
-            "icon": "truck",
-            "title": "Envío 24–72h",
-            "text": "<p>Despacho desde nuestro almacén con seguimiento.</p>"
-          }
-        },
-        "t2": {
-          "type": "feature",
-          "settings": {
-            "icon": "refresh",
-            "title": "Garantía 30 días",
-            "text": "<p>Devolución sin complicaciones si no quedas satisfecho.</p>"
-          }
-        },
-        "t3": {
-          "type": "feature",
-          "settings": {
-            "icon": "lock",
-            "title": "Pago seguro",
-            "text": "<p>Pasarelas certificadas y datos cifrados.</p>"
-          }
-        }
+        "s1": { "type": "step", "settings": { "title": "Elige el lugar ideal", "text": "Instálala en una zona exterior con luz solar durante el día." } },
+        "s2": { "type": "step", "settings": { "title": "Fíjala en la pared", "text": "Perfecta para fachadas, entradas, patios, garajes y jardines." } },
+        "s3": { "type": "step", "settings": { "title": "Disfruta luz automática", "text": "El sensor detecta movimiento y activa la iluminación cuando la necesitas." } },
+        "p1": { "type": "place", "settings": { "icon": "🏠", "label": "Fachada" } },
+        "p2": { "type": "place", "settings": { "icon": "🚗", "label": "Garaje" } },
+        "p3": { "type": "place", "settings": { "icon": "🌿", "label": "Jardín" } },
+        "p4": { "type": "place", "settings": { "icon": "🚪", "label": "Entrada" } }
       },
-      "block_order": ["t1", "t2", "t3"],
+      "block_order": ["s1", "s2", "s3", "p1", "p2", "p3", "p4"],
       "settings": {
-        "caption": "",
-        "title": "Compra con confianza",
-        "subtitle": "",
-        "icon_style": "accent",
-        "columns_desktop": 3,
-        "columns_mobile": "1",
-        "color_scheme": "scheme-2",
-        "padding_top": 56,
-        "padding_bottom": 56
+        "badge": "Instalación fácil",
+        "heading": "Colócala en minutos y úsala en cualquier exterior",
+        "subtitle": "<p>No necesitas cables ni instalaciones complicadas. Solo fija la lámpara en una pared con buena exposición al sol y deja que ilumine automáticamente tus espacios por la noche.</p>",
+        "button_label": "Comprar ahora",
+        "button_link": "#comprar"
       }
     },
-    "related-products": {
-      "type": "related-products",
+    "final": {
+      "type": "solar-final",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "text": "Funciona con energía solar" } },
+        "f2": { "type": "feature", "settings": { "text": "Encendido automático por movimiento" } },
+        "f3": { "type": "feature", "settings": { "text": "Ideal para exteriores" } },
+        "f4": { "type": "feature", "settings": { "text": "Instalación fácil sin cables" } },
+        "q1": { "type": "faq", "settings": { "question": "¿Necesita conexión eléctrica?", "answer": "No. Funciona con energía solar, por lo que no requiere cables eléctricos para su uso diario." } },
+        "q2": { "type": "faq", "settings": { "question": "¿Se puede instalar en exteriores?", "answer": "Sí. Está diseñada para uso exterior en fachadas, patios, entradas, garajes y jardines." } },
+        "q3": { "type": "faq", "settings": { "question": "¿La luz se enciende sola?", "answer": "Sí. Cuenta con sensor de movimiento para activar la iluminación cuando detecta actividad cercana." } },
+        "q4": { "type": "faq", "settings": { "question": "¿Dónde se recomienda instalarla?", "answer": "En zonas donde reciba buena luz solar durante el día, como paredes exteriores, entradas o patios." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "q1", "q2", "q3", "q4"],
       "settings": {
-        "heading": "También te puede interesar",
-        "heading_size": "h2",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "badge": "Oferta especial",
+        "heading": "Mejora la seguridad de tu hogar desde hoy",
+        "subtitle": "<p>Instala una iluminación exterior automática, solar y resistente para entradas, patios, garajes, jardines y fachadas.</p>",
+        "box_label": "Lámpara Solar de Pared",
+        "box_title": "4 Focos LED + Sensor de Movimiento",
+        "button_label": "Comprar ahora",
+        "go_to_checkout": false,
+        "note": "Stock disponible por tiempo limitado.",
+        "faq_heading": "Preguntas frecuentes"
       }
     }
   },
-  "order": [
-    "main",
-    "benefits",
-    "description_block",
-    "specs",
-    "faq",
-    "trust",
-    "related-products"
-  ]
+  "order": ["hero", "benefits", "weather", "install", "final"]
 }
