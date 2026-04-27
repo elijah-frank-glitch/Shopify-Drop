@@ -1,0 +1,319 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Compartir"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "benefits": {
+      "type": "multicolumn",
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "title": "Antioxidante natural",
+            "text": "<p>Astaxantina obtenida de microalga <em>Haematococcus pluvialis</em>, una de las moléculas antioxidantes más potentes conocidas.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "title": "Apoyo a piel y vista",
+            "text": "<p>Contribuye a proteger la piel del estrés oxidativo y al confort visual diario frente a pantallas y luz intensa.</p>"
+          }
+        },
+        "b3": {
+          "type": "column",
+          "settings": {
+            "title": "Energía y recuperación",
+            "text": "<p>Apoya el rendimiento físico y la recuperación muscular tras la actividad deportiva.</p>"
+          }
+        },
+        "b4": {
+          "type": "column",
+          "settings": {
+            "title": "Fórmula limpia",
+            "text": "<p>Sin gluten, sin transgénicos y apto para dietas veganas. Cápsula de origen vegetal.</p>"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "title": "Beneficios principales",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 4,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 48,
+        "padding_bottom": 24
+      }
+    },
+    "description": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sobre la Astaxantina 12 mg",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>La astaxantina es un carotenoide rojo presente de forma natural en microalgas, krill y salmón. Esta fórmula concentrada de 12 mg ofrece una dosis diaria pensada para personas activas que buscan un soporte antioxidante sostenido.</p><p>Cada cápsula está formulada con aceite vegetal para optimizar la absorción del principio activo.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "specs": {
+      "type": "product-specs",
+      "blocks": {
+        "s1": {
+          "type": "spec",
+          "settings": {
+            "label": "Dosis",
+            "value": "<p>12 mg de astaxantina por cápsula.</p>"
+          }
+        },
+        "s2": {
+          "type": "spec",
+          "settings": {
+            "label": "Presentación",
+            "value": "<p>Frasco con 30 cápsulas blandas (1 mes).</p>"
+          }
+        },
+        "s3": {
+          "type": "spec",
+          "settings": {
+            "label": "Modo de uso",
+            "value": "<p>1 cápsula al día con una comida que contenga grasas.</p>"
+          }
+        },
+        "s4": {
+          "type": "spec",
+          "settings": {
+            "label": "Ingredientes",
+            "value": "<p>Astaxantina (de <em>H. pluvialis</em>), aceite de girasol, cápsula vegetal (almidón modificado, glicerina).</p>"
+          }
+        },
+        "s5": {
+          "type": "spec",
+          "settings": {
+            "label": "Conservación",
+            "value": "<p>Lugar fresco y seco, lejos de la luz solar directa.</p>"
+          }
+        },
+        "s6": {
+          "type": "spec",
+          "settings": {
+            "label": "Apto para",
+            "value": "<p>Veganos. Sin gluten, sin lactosa, sin transgénicos.</p>"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3", "s4", "s5", "s6"],
+      "settings": {
+        "heading": "Especificaciones",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "f1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuándo notaré los efectos?",
+            "row_content": "<p>La astaxantina actúa de forma acumulativa. La mayoría de personas perciben mejoras en piel, vista y energía a partir de las 4–6 semanas de uso constante.</p>"
+          }
+        },
+        "f2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo combinarla con otros suplementos?",
+            "row_content": "<p>Sí. Es compatible con multivitamínicos, omega 3 y proteína. Si tomas medicación, consulta con tu profesional de salud.</p>"
+          }
+        },
+        "f3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Tiene efectos secundarios?",
+            "row_content": "<p>En las dosis recomendadas se considera segura. No exceder la dosis diaria. No recomendada en embarazo, lactancia o menores sin supervisión médica.</p>"
+          }
+        },
+        "f4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Es vegana?",
+            "row_content": "<p>Sí. La astaxantina proviene de microalga y la cápsula es de origen vegetal.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "heading": "Preguntas frecuentes",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "trust": {
+      "type": "multicolumn",
+      "blocks": {
+        "t1": {
+          "type": "column",
+          "settings": {
+            "title": "Envío 24–72h",
+            "text": "<p>Despacho desde nuestro almacén con seguimiento en tiempo real.</p>"
+          }
+        },
+        "t2": {
+          "type": "column",
+          "settings": {
+            "title": "Garantía 30 días",
+            "text": "<p>Si no quedas satisfecho, te devolvemos el importe sin preguntas.</p>"
+          }
+        },
+        "t3": {
+          "type": "column",
+          "settings": {
+            "title": "Producto certificado",
+            "text": "<p>Materia prima trazable y análisis de pureza por lote.</p>"
+          }
+        }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": {
+        "title": "Compra con confianza",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "circle",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "También te puede interesar",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "benefits",
+    "description",
+    "specs",
+    "faq",
+    "trust",
+    "related-products"
+  ]
+}

@@ -1,0 +1,224 @@
+{{ 'section-catalog-grid.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign collection = section.settings.collection
+  assign limit = section.settings.products_to_show
+  assign cta_label = section.settings.cta_label | default: 'Ver detalles'
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="catalog-grid section-{{ section.id }}-padding">
+    {%- if section.settings.title != blank or section.settings.subheading != blank -%}
+      <header class="catalog-grid__header">
+        {%- if section.settings.title != blank -%}
+          <h2 class="catalog-grid__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <p class="catalog-grid__subheading">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul
+      class="catalog-grid__list"
+      role="list"
+      style="--cg-cols-desktop: {{ section.settings.columns_desktop }}; --cg-cols-mobile: {{ section.settings.columns_mobile }};"
+    >
+      {%- if collection != blank and collection.products_count > 0 -%}
+        {%- for product in collection.products limit: limit -%}
+          <li class="catalog-card" role="listitem">
+            <a class="catalog-card__media" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+              {%- if product.featured_media != nil -%}
+                <img
+                  srcset="
+                    {%- if product.featured_media.width >= 360 -%}{{ product.featured_media | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if product.featured_media.width >= 540 -%}{{ product.featured_media | image_url: width: 540 }} 540w,{%- endif -%}
+                    {%- if product.featured_media.width >= 720 -%}{{ product.featured_media | image_url: width: 720 }} 720w,{%- endif -%}
+                    {{ product.featured_media | image_url }} {{ product.featured_media.width }}w
+                  "
+                  src="{{ product.featured_media | image_url: width: 540 }}"
+                  sizes="(min-width: 990px) calc((100vw - 8rem) / {{ section.settings.columns_desktop }}), (min-width: 750px) calc((100vw - 5rem) / 2), calc((100vw - 3rem) / {{ section.settings.columns_mobile }})"
+                  alt="{{ product.featured_media.alt | escape }}"
+                  loading="lazy"
+                  width="{{ product.featured_media.width }}"
+                  height="{{ product.featured_media.height }}"
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </a>
+            <div class="catalog-card__body">
+              {%- if section.settings.show_vendor and product.vendor != blank -%}
+                <p class="catalog-card__vendor">{{ product.vendor }}</p>
+              {%- endif -%}
+              <h3 class="catalog-card__title">
+                <a href="{{ product.url }}">{{ product.title | escape }}</a>
+              </h3>
+              <div class="catalog-card__price">
+                {% render 'price', product: product, price_class: '' %}
+              </div>
+              <a class="catalog-card__cta" href="{{ product.url }}">
+                {{ cta_label | escape }}
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </li>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for i in (1..section.settings.products_to_show) -%}
+          <li class="catalog-card" role="listitem">
+            <span class="catalog-card__media">
+              {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </span>
+            <div class="catalog-card__body">
+              <h3 class="catalog-card__title">{{ 'products.product.title' | t | default: 'Producto de muestra' }}</h3>
+              <div class="catalog-card__price">{% render 'price', placeholder: true %}</div>
+              <span class="catalog-card__cta">{{ cta_label | escape }}</span>
+            </div>
+          </li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+
+    {%- if section.settings.show_view_all and collection != blank -%}
+      <div class="catalog-grid__view-all">
+        <a href="{{ collection.url }}">
+          {{ section.settings.view_all_label | default: 'Ver todo el catálogo' }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Catálogo",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Catálogo",
+      "label": "Título"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Selección curada de productos",
+      "label": "Subtítulo"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colección"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 8,
+      "label": "Productos a mostrar"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Columnas en desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1 columna" },
+        { "value": "2", "label": "2 columnas" }
+      ],
+      "default": "2",
+      "label": "Columnas en móvil"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Mostrar marca"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "default": "Ver detalles",
+      "label": "Texto del botón"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Mostrar enlace 'Ver todo'"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "default": "Ver todo el catálogo",
+      "label": "Texto del enlace 'Ver todo'"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "Esquema de color"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Catálogo",
+      "settings": {
+        "collection": "all"
+      }
+    }
+  ]
+}
+{% endschema %}
