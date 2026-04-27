@@ -24,7 +24,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/ChatGPT_Image_21_abr_2026_20_00_06.png",
-        "image_overlay_opacity": 55,
+        "image_overlay_opacity": 60,
         "image_height": "large",
         "image_behavior": "ambient",
         "desktop_content_position": "middle-center",
