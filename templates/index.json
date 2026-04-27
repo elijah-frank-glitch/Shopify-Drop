@@ -41,32 +41,36 @@
       }
     },
     "trust_strip": {
-      "type": "multicolumn",
+      "type": "feature-icons",
       "blocks": {
         "ts1": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "truck",
             "title": "Envío 24–72h",
             "text": "<p>Despacho rápido con seguimiento en todo el país.</p>"
           }
         },
         "ts2": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "lock",
             "title": "Pago seguro",
             "text": "<p>Tarjeta, transferencia y pasarelas certificadas.</p>"
           }
         },
         "ts3": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "refresh",
             "title": "Garantía 30 días",
             "text": "<p>Devolución sencilla si no quedas satisfecho.</p>"
           }
         },
         "ts4": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "chat",
             "title": "Atención humana",
             "text": "<p>Soporte directo por WhatsApp y correo.</p>"
           }
@@ -74,18 +78,15 @@
       },
       "block_order": ["ts1", "ts2", "ts3", "ts4"],
       "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "circle",
+        "caption": "Nuestra promesa",
+        "title": "Compra con confianza",
+        "subtitle": "",
+        "icon_style": "soft",
         "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 24,
-        "padding_bottom": 24
+        "color_scheme": "scheme-1",
+        "padding_top": 56,
+        "padding_bottom": 32
       }
     },
     "catalog_grid": {
@@ -102,26 +103,26 @@
         "show_view_all": true,
         "view_all_label": "Ver todo el catálogo",
         "color_scheme": "scheme-1",
-        "padding_top": 56,
-        "padding_bottom": 40
+        "padding_top": 32,
+        "padding_bottom": 56
       }
     },
     "brand_story": {
       "type": "rich-text",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Productos elegidos con criterio",
-            "heading_size": "h1"
-          }
-        },
         "caption": {
           "type": "caption",
           "settings": {
             "caption": "Nuestra promesa",
             "text_style": "uppercase",
             "text_size": "medium"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Productos elegidos con criterio",
+            "heading_size": "h1"
           }
         },
         "text": {
@@ -143,10 +144,10 @@
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 56,
-        "padding_bottom": 56
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
       }
     },
     "home_faq": {
@@ -183,8 +184,8 @@
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-2",
         "open_first_collapsible_row": false,
-        "padding_top": 24,
-        "padding_bottom": 56
+        "padding_top": 56,
+        "padding_bottom": 72
       }
     }
   },

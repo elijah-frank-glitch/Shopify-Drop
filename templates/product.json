@@ -74,51 +74,52 @@
       }
     },
     "benefits": {
-      "type": "multicolumn",
+      "type": "feature-icons",
       "blocks": {
         "b1": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "shield",
             "title": "Calidad garantizada",
-            "text": "<p>Productos seleccionados con estándares de calidad. Cada artículo es revisado antes de ser enviado.</p>"
+            "text": "<p>Productos seleccionados con estándares estrictos. Cada artículo se revisa antes de ser enviado.</p>"
           }
         },
         "b2": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "truck",
             "title": "Envío rápido",
             "text": "<p>Despacho en 24–72 horas con seguimiento en tiempo real hasta tu puerta.</p>"
           }
         },
         "b3": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "chat",
             "title": "Atención cercana",
-            "text": "<p>Soporte directo por WhatsApp y correo. Te respondemos dudas antes y después de tu compra.</p>"
+            "text": "<p>Soporte directo por WhatsApp y correo. Te respondemos antes y después de tu compra.</p>"
           }
         },
         "b4": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "heart",
             "title": "Compra protegida",
-            "text": "<p>Garantía de satisfacción. Si algo no está bien, te ayudamos a resolverlo sin complicaciones.</p>"
+            "text": "<p>Garantía de satisfacción. Si algo no está bien, te ayudamos a resolverlo.</p>"
           }
         }
       },
       "block_order": ["b1", "b2", "b3", "b4"],
       "settings": {
+        "caption": "Nuestra promesa",
         "title": "Por qué elegirnos",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "circle",
+        "subtitle": "",
+        "icon_style": "soft",
         "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "none",
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 24
+        "padding_top": 56,
+        "padding_bottom": 32
       }
     },
     "description_block": {
@@ -144,8 +145,8 @@
         "content_alignment": "left",
         "color_scheme": "scheme-1",
         "full_width": false,
-        "padding_top": 36,
-        "padding_bottom": 24
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "specs": {
@@ -184,8 +185,8 @@
       "settings": {
         "heading": "Especificaciones",
         "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 32,
+        "padding_bottom": 48
       }
     },
     "faq": {
@@ -209,7 +210,7 @@
           "type": "collapsible_row",
           "settings": {
             "heading": "¿El pago es seguro?",
-            "row_content": "<p>Sí. Procesamos los pagos a través de pasarelas certificadas (Shopify Payments, PayPal y otros). Tus datos viajan cifrados.</p>"
+            "row_content": "<p>Sí. Procesamos los pagos a través de pasarelas certificadas. Tus datos viajan cifrados de extremo a extremo.</p>"
           }
         },
         "f4": {
@@ -229,49 +230,49 @@
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-2",
         "open_first_collapsible_row": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 56
       }
     },
     "trust": {
-      "type": "multicolumn",
+      "type": "feature-icons",
       "blocks": {
         "t1": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "truck",
             "title": "Envío 24–72h",
             "text": "<p>Despacho desde nuestro almacén con seguimiento.</p>"
           }
         },
         "t2": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "refresh",
             "title": "Garantía 30 días",
             "text": "<p>Devolución sin complicaciones si no quedas satisfecho.</p>"
           }
         },
         "t3": {
-          "type": "column",
+          "type": "feature",
           "settings": {
+            "icon": "lock",
             "title": "Pago seguro",
-            "text": "<p>Pasarelas certificadas y datos cifrados de extremo a extremo.</p>"
+            "text": "<p>Pasarelas certificadas y datos cifrados.</p>"
           }
         }
       },
       "block_order": ["t1", "t2", "t3"],
       "settings": {
+        "caption": "",
         "title": "Compra con confianza",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "circle",
+        "subtitle": "",
+        "icon_style": "accent",
         "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_scheme": "scheme-2",
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "related-products": {

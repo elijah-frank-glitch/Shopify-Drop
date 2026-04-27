@@ -3,60 +3,16 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Compartir"
-          }
-        }
+        "vendor": { "type": "text", "settings": { "text": "{{ product.vendor }}", "text_style": "uppercase" } },
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "variant_picker": { "type": "variant_picker", "settings": { "picker_type": "button", "swatch_shape": "circle" } },
+        "quantity_selector": { "type": "quantity_selector", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true, "show_gift_card_recipient": false } },
+        "description": { "type": "description", "settings": {} },
+        "share": { "type": "share", "settings": { "share_label": "Compartir" } }
       },
-      "block_order": [
-        "vendor",
-        "title",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "share"
-      ],
+      "block_order": ["vendor", "title", "price", "variant_picker", "quantity_selector", "buy_buttons", "description", "share"],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
@@ -74,69 +30,31 @@
       }
     },
     "features": {
-      "type": "multicolumn",
+      "type": "feature-icons",
       "blocks": {
-        "f1": {
-          "type": "column",
-          "settings": {
-            "title": "Carga 100% solar",
-            "text": "<p>Panel solar integrado de alta eficiencia que carga la batería interna durante el día.</p>"
-          }
-        },
-        "f2": {
-          "type": "column",
-          "settings": {
-            "title": "Sensor de movimiento",
-            "text": "<p>Detección PIR de hasta 8 metros con encendido automático al detectar presencia.</p>"
-          }
-        },
-        "f3": {
-          "type": "column",
-          "settings": {
-            "title": "Resistencia IP65",
-            "text": "<p>Carcasa resistente al agua, polvo y rayos UV. Apta para exteriores todo el año.</p>"
-          }
-        },
-        "f4": {
-          "type": "column",
-          "settings": {
-            "title": "4 focos LED orientables",
-            "text": "<p>Cobertura de 270° con focos ajustables independientemente para iluminar áreas amplias.</p>"
-          }
-        }
+        "f1": { "type": "feature", "settings": { "icon": "sun", "title": "Carga 100% solar", "text": "<p>Panel solar integrado de alta eficiencia que carga la batería interna durante el día.</p>" } },
+        "f2": { "type": "feature", "settings": { "icon": "eye", "title": "Sensor de movimiento", "text": "<p>Detección PIR de hasta 8 metros con encendido automático al detectar presencia.</p>" } },
+        "f3": { "type": "feature", "settings": { "icon": "droplet", "title": "Resistencia IP65", "text": "<p>Carcasa resistente al agua, polvo y rayos UV. Apta para exteriores todo el año.</p>" } },
+        "f4": { "type": "feature", "settings": { "icon": "bolt", "title": "4 focos LED orientables", "text": "<p>Cobertura de 270° con focos ajustables independientemente para áreas amplias.</p>" } }
       },
       "block_order": ["f1", "f2", "f3", "f4"],
       "settings": {
-        "title": "Características principales",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "square",
+        "caption": "Características",
+        "title": "Tecnología solar para tu hogar",
+        "subtitle": "",
+        "icon_style": "soft",
         "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "none",
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 48,
-        "padding_bottom": 24
+        "padding_top": 56,
+        "padding_bottom": 32
       }
     },
-    "description": {
+    "description_block": {
       "type": "rich-text",
       "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Iluminación inteligente sin cables",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Lámpara solar de pared con 4 focos LED orientables, panel solar integrado y sensor de movimiento. Diseñada para iluminar entradas, garajes, jardines y patios sin necesidad de instalación eléctrica.</p><p>Carga durante el día y se enciende automáticamente al detectar movimiento por la noche, ofreciendo seguridad y comodidad con cero coste energético.</p>"
-          }
-        }
+        "heading": { "type": "heading", "settings": { "heading": "Iluminación inteligente sin cables", "heading_size": "h2" } },
+        "text": { "type": "text", "settings": { "text": "<p>Lámpara solar de pared con 4 focos LED orientables, panel solar integrado y sensor de movimiento. Diseñada para iluminar entradas, garajes, jardines y patios sin necesidad de instalación eléctrica.</p><p>Carga durante el día y se enciende automáticamente al detectar movimiento por la noche, ofreciendo seguridad y comodidad con cero coste energético.</p>" } }
       },
       "block_order": ["heading", "text"],
       "settings": {
@@ -144,116 +62,33 @@
         "content_alignment": "left",
         "color_scheme": "scheme-1",
         "full_width": false,
-        "padding_top": 36,
-        "padding_bottom": 24
+        "padding_top": 32,
+        "padding_bottom": 32
       }
     },
     "specs": {
       "type": "product-specs",
       "blocks": {
-        "s1": {
-          "type": "spec",
-          "settings": {
-            "label": "Luminosidad",
-            "value": "<p>Hasta 600 lúmenes (4 focos LED).</p>"
-          }
-        },
-        "s2": {
-          "type": "spec",
-          "settings": {
-            "label": "Batería",
-            "value": "<p>Litio recargable 2200 mAh.</p>"
-          }
-        },
-        "s3": {
-          "type": "spec",
-          "settings": {
-            "label": "Tiempo de carga",
-            "value": "<p>6–8 horas de luz solar directa para carga completa.</p>"
-          }
-        },
-        "s4": {
-          "type": "spec",
-          "settings": {
-            "label": "Autonomía",
-            "value": "<p>Hasta 12 horas con activaciones por sensor.</p>"
-          }
-        },
-        "s5": {
-          "type": "spec",
-          "settings": {
-            "label": "Sensor",
-            "value": "<p>PIR — alcance hasta 8 m, ángulo 120°.</p>"
-          }
-        },
-        "s6": {
-          "type": "spec",
-          "settings": {
-            "label": "Material",
-            "value": "<p>ABS resistente a UV con disipador de aluminio.</p>"
-          }
-        },
-        "s7": {
-          "type": "spec",
-          "settings": {
-            "label": "Resistencia",
-            "value": "<p>IP65 (polvo y agua).</p>"
-          }
-        },
-        "s8": {
-          "type": "spec",
-          "settings": {
-            "label": "Dimensiones",
-            "value": "<p>Aprox. 22 × 12 × 6 cm.</p>"
-          }
-        }
+        "s1": { "type": "spec", "settings": { "label": "Luminosidad", "value": "<p>Hasta 600 lúmenes (4 focos LED).</p>" } },
+        "s2": { "type": "spec", "settings": { "label": "Batería", "value": "<p>Litio recargable 2200 mAh.</p>" } },
+        "s3": { "type": "spec", "settings": { "label": "Tiempo de carga", "value": "<p>6–8 horas de luz solar directa.</p>" } },
+        "s4": { "type": "spec", "settings": { "label": "Autonomía", "value": "<p>Hasta 12 horas con activaciones por sensor.</p>" } },
+        "s5": { "type": "spec", "settings": { "label": "Sensor", "value": "<p>PIR — alcance hasta 8 m, ángulo 120°.</p>" } },
+        "s6": { "type": "spec", "settings": { "label": "Material", "value": "<p>ABS resistente a UV con disipador de aluminio.</p>" } },
+        "s7": { "type": "spec", "settings": { "label": "Resistencia", "value": "<p>IP65 (polvo y agua).</p>" } },
+        "s8": { "type": "spec", "settings": { "label": "Dimensiones", "value": "<p>Aprox. 22 × 12 × 6 cm.</p>" } }
       },
       "block_order": ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8"],
-      "settings": {
-        "heading": "Ficha técnica",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "settings": { "heading": "Ficha técnica", "color_scheme": "scheme-1", "padding_top": 32, "padding_bottom": 48 }
     },
     "faq": {
       "type": "collapsible-content",
       "blocks": {
-        "q1": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Cómo se instala?",
-            "row_content": "<p>Se fija con tornillos a una pared exterior. Sin cables ni electricista. La lámpara se orienta hacia el sol para óptima carga.</p>"
-          }
-        },
-        "q2": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Funciona en días nublados?",
-            "row_content": "<p>Sí, aunque la carga es menor. Recomendamos colocarla en una zona con varias horas de luz directa para maximizar la autonomía.</p>"
-          }
-        },
-        "q3": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Resiste lluvia y nieve?",
-            "row_content": "<p>Sí. Su clasificación IP65 la protege frente a lluvia, polvo y temperaturas extremas en uso normal exterior.</p>"
-          }
-        },
-        "q4": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Cuánto dura la batería en el tiempo?",
-            "row_content": "<p>La batería de litio mantiene su capacidad por 1.000+ ciclos en condiciones normales, aproximadamente 2–3 años de uso continuo.</p>"
-          }
-        },
-        "q5": {
-          "type": "collapsible_row",
-          "settings": {
-            "heading": "¿Qué incluye la caja?",
-            "row_content": "<p>Lámpara, kit de tornillería, manual y guía rápida de instalación.</p>"
-          }
-        }
+        "q1": { "type": "collapsible_row", "settings": { "heading": "¿Cómo se instala?", "row_content": "<p>Se fija con tornillos a una pared exterior. Sin cables ni electricista. Orientarla hacia el sol para óptima carga.</p>" } },
+        "q2": { "type": "collapsible_row", "settings": { "heading": "¿Funciona en días nublados?", "row_content": "<p>Sí, aunque la carga es menor. Recomendamos colocarla en una zona con varias horas de luz directa.</p>" } },
+        "q3": { "type": "collapsible_row", "settings": { "heading": "¿Resiste lluvia y nieve?", "row_content": "<p>Sí. Su clasificación IP65 la protege frente a lluvia, polvo y temperaturas extremas en uso normal exterior.</p>" } },
+        "q4": { "type": "collapsible_row", "settings": { "heading": "¿Cuánto dura la batería en el tiempo?", "row_content": "<p>La batería de litio mantiene su capacidad por 1.000+ ciclos en condiciones normales, aproximadamente 2–3 años de uso continuo.</p>" } },
+        "q5": { "type": "collapsible_row", "settings": { "heading": "¿Qué incluye la caja?", "row_content": "<p>Lámpara, kit de tornillería, manual y guía rápida de instalación.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5"],
       "settings": {
@@ -264,49 +99,28 @@
         "color_scheme": "scheme-1",
         "container_color_scheme": "scheme-2",
         "open_first_collapsible_row": true,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 56
       }
     },
     "trust": {
-      "type": "multicolumn",
+      "type": "feature-icons",
       "blocks": {
-        "t1": {
-          "type": "column",
-          "settings": {
-            "title": "Garantía 12 meses",
-            "text": "<p>Cubrimos defectos de fabricación durante un año desde la compra.</p>"
-          }
-        },
-        "t2": {
-          "type": "column",
-          "settings": {
-            "title": "Envío gratis",
-            "text": "<p>Envío gratuito en pedidos superiores al mínimo, con seguimiento.</p>"
-          }
-        },
-        "t3": {
-          "type": "column",
-          "settings": {
-            "title": "Soporte técnico",
-            "text": "<p>Atención post-venta para instalación, dudas y reposiciones.</p>"
-          }
-        }
+        "t1": { "type": "feature", "settings": { "icon": "shield", "title": "Garantía 12 meses", "text": "<p>Cubrimos defectos de fabricación durante un año desde la compra.</p>" } },
+        "t2": { "type": "feature", "settings": { "icon": "truck", "title": "Envío gratis", "text": "<p>Envío gratuito en pedidos superiores al mínimo, con seguimiento.</p>" } },
+        "t3": { "type": "feature", "settings": { "icon": "phone", "title": "Soporte técnico", "text": "<p>Atención post-venta para instalación, dudas y reposiciones.</p>" } }
       },
       "block_order": ["t1", "t2", "t3"],
       "settings": {
+        "caption": "",
         "title": "Compra con confianza",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "circle",
+        "subtitle": "",
+        "icon_style": "accent",
         "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "color_scheme": "scheme-2",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_scheme": "scheme-2",
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "related-products": {
@@ -328,13 +142,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "features",
-    "description",
-    "specs",
-    "faq",
-    "trust",
-    "related-products"
-  ]
+  "order": ["main", "features", "description_block", "specs", "faq", "trust", "related-products"]
 }

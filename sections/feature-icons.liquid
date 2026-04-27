@@ -1,0 +1,226 @@
+{{ 'section-feature-icons.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- capture icon_shield -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>{%- endcapture -%}
+{%- capture icon_truck -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>{%- endcapture -%}
+{%- capture icon_chat -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.5 7.2L4 21l1.8-5.5A8 8 0 1 1 21 12z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg>{%- endcapture -%}
+{%- capture icon_heart -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 6.6a5.2 5.2 0 0 0-8.8-2.3 5.2 5.2 0 0 0-8.8 2.3c-1 4.6 5 8.8 8.8 11.6 3.8-2.8 9.8-7 8.8-11.6z"/></svg>{%- endcapture -%}
+{%- capture icon_leaf -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4c-9 0-15 5-15 13 0 1 .2 2 .5 3"/><path d="M20 4c0 9-5 15-13 15"/><path d="M5.5 20c4 0 7-3 7-7"/></svg>{%- endcapture -%}
+{%- capture icon_star -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.5 6 .9-4.3 4.2 1 6-5.4-2.8-5.4 2.8 1-6L3.3 9.4l6-.9z"/></svg>{%- endcapture -%}
+{%- capture icon_lock -%}<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>{%- endcapture -%}
+{%- capture icon_refresh -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 4v4h-4"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 20v-4h4"/></svg>{%- endcapture -%}
+{%- capture icon_gift -%}<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M3 12h18M12 8v13"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5z"/></svg>{%- endcapture -%}
+{%- capture icon_certificate -%}<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/><path d="M12 6v3l2 1"/></svg>{%- endcapture -%}
+{%- capture icon_bolt -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg>{%- endcapture -%}
+{%- capture icon_sun -%}<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>{%- endcapture -%}
+{%- capture icon_droplet -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/></svg>{%- endcapture -%}
+{%- capture icon_phone -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>{%- endcapture -%}
+{%- capture icon_eye -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>{%- endcapture -%}
+{%- capture icon_check -%}<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>{%- endcapture -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="feature-icons{% if section.settings.icon_style == 'accent' %} feature-icons--accent{% endif %} section-{{ section.id }}-padding">
+    {%- if section.settings.caption != blank or section.settings.title != blank or section.settings.subtitle != blank -%}
+      <header class="feature-icons__header">
+        {%- if section.settings.caption != blank -%}
+          <p class="feature-icons__caption">{{ section.settings.caption | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.title != blank -%}
+          <h2 class="feature-icons__title">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtitle != blank -%}
+          <p class="feature-icons__subtitle">{{ section.settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div
+      class="feature-icons__grid"
+      style="--fi-cols-desktop: {{ section.settings.columns_desktop }}; --fi-cols-mobile: {{ section.settings.columns_mobile }};"
+    >
+      {%- for block in section.blocks -%}
+        <div class="feature-icons__item" {{ block.shopify_attributes }}>
+          <span class="feature-icons__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'shield' -%}{{ icon_shield }}
+              {%- when 'truck' -%}{{ icon_truck }}
+              {%- when 'chat' -%}{{ icon_chat }}
+              {%- when 'heart' -%}{{ icon_heart }}
+              {%- when 'leaf' -%}{{ icon_leaf }}
+              {%- when 'star' -%}{{ icon_star }}
+              {%- when 'lock' -%}{{ icon_lock }}
+              {%- when 'refresh' -%}{{ icon_refresh }}
+              {%- when 'gift' -%}{{ icon_gift }}
+              {%- when 'certificate' -%}{{ icon_certificate }}
+              {%- when 'bolt' -%}{{ icon_bolt }}
+              {%- when 'sun' -%}{{ icon_sun }}
+              {%- when 'droplet' -%}{{ icon_droplet }}
+              {%- when 'phone' -%}{{ icon_phone }}
+              {%- when 'eye' -%}{{ icon_eye }}
+              {%- else -%}{{ icon_check }}
+            {%- endcase -%}
+          </span>
+          <h3 class="feature-icons__item-title">{{ block.settings.title | escape }}</h3>
+          {%- if block.settings.text != blank -%}
+            <p class="feature-icons__item-text">{{ block.settings.text }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Iconos con texto",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Etiqueta superior",
+      "default": "Nuestra promesa"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Por qué elegirnos"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "Estilo del icono",
+      "options": [
+        { "value": "soft", "label": "Suave" },
+        { "value": "accent", "label": "Acento" }
+      ],
+      "default": "soft"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4,
+      "label": "Columnas desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2",
+      "label": "Columnas móvil"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme-1",
+      "label": "Esquema de color"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48,
+      "label": "Padding superior"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 48,
+      "label": "Padding inferior"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "default": "check",
+          "options": [
+            { "value": "shield", "label": "Escudo (calidad)" },
+            { "value": "truck", "label": "Camión (envío)" },
+            { "value": "chat", "label": "Chat (soporte)" },
+            { "value": "heart", "label": "Corazón" },
+            { "value": "leaf", "label": "Hoja (natural)" },
+            { "value": "star", "label": "Estrella" },
+            { "value": "lock", "label": "Candado (seguridad)" },
+            { "value": "refresh", "label": "Devolución" },
+            { "value": "gift", "label": "Regalo" },
+            { "value": "certificate", "label": "Certificado" },
+            { "value": "bolt", "label": "Rayo (energía)" },
+            { "value": "sun", "label": "Sol" },
+            { "value": "droplet", "label": "Resistencia agua" },
+            { "value": "phone", "label": "Teléfono" },
+            { "value": "eye", "label": "Ojo" },
+            { "value": "check", "label": "Check" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Característica"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Texto",
+          "default": "<p>Describe brevemente esta característica.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Iconos con texto",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "shield", "title": "Calidad garantizada" } },
+        { "type": "feature", "settings": { "icon": "truck", "title": "Envío rápido" } },
+        { "type": "feature", "settings": { "icon": "chat", "title": "Atención cercana" } },
+        { "type": "feature", "settings": { "icon": "lock", "title": "Pago seguro" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
