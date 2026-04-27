@@ -74,35 +74,31 @@
         "button_link": "#comprar"
       }
     },
-    "comprar": {
-      "type": "main-product",
+    "final": {
+      "type": "solar-final",
       "blocks": {
-        "vendor": { "type": "text", "settings": { "text": "{{ product.vendor }}", "text_style": "uppercase" } },
-        "title": { "type": "title", "settings": {} },
-        "price": { "type": "price", "settings": {} },
-        "variant_picker": { "type": "variant_picker", "settings": { "picker_type": "button", "swatch_shape": "circle" } },
-        "quantity_selector": { "type": "quantity_selector", "settings": {} },
-        "buy_buttons": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true, "show_gift_card_recipient": false } },
-        "description": { "type": "description", "settings": {} },
-        "share": { "type": "share", "settings": { "share_label": "Compartir" } }
+        "f1": { "type": "feature", "settings": { "text": "Funciona con energía solar" } },
+        "f2": { "type": "feature", "settings": { "text": "Encendido automático por movimiento" } },
+        "f3": { "type": "feature", "settings": { "text": "Ideal para exteriores" } },
+        "f4": { "type": "feature", "settings": { "text": "Instalación fácil sin cables" } },
+        "q1": { "type": "faq", "settings": { "question": "¿Necesita conexión eléctrica?", "answer": "No. Funciona con energía solar, por lo que no requiere cables eléctricos para su uso diario." } },
+        "q2": { "type": "faq", "settings": { "question": "¿Se puede instalar en exteriores?", "answer": "Sí. Está diseñada para uso exterior en fachadas, patios, entradas, garajes y jardines." } },
+        "q3": { "type": "faq", "settings": { "question": "¿La luz se enciende sola?", "answer": "Sí. Cuenta con sensor de movimiento para activar la iluminación cuando detecta actividad cercana." } },
+        "q4": { "type": "faq", "settings": { "question": "¿Dónde se recomienda instalarla?", "answer": "En zonas donde reciba buena luz solar durante el día, como paredes exteriores, entradas o patios." } }
       },
-      "block_order": ["vendor", "title", "price", "variant_picker", "quantity_selector", "buy_buttons", "description", "share"],
+      "block_order": ["f1", "f2", "f3", "f4", "q1", "q2", "q3", "q4"],
       "settings": {
-        "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "badge": "Oferta especial",
+        "heading": "Mejora la seguridad de tu hogar desde hoy",
+        "subtitle": "<p>Instala una iluminación exterior automática, solar y resistente para entradas, patios, garajes, jardines y fachadas.</p>",
+        "box_label": "Lámpara Solar de Pared",
+        "box_title": "4 Focos LED + Sensor de Movimiento",
+        "button_label": "Comprar ahora",
+        "go_to_checkout": false,
+        "note": "Stock disponible por tiempo limitado.",
+        "faq_heading": "Preguntas frecuentes"
       }
     }
   },
-  "order": ["hero", "benefits", "weather", "install", "comprar"]
+  "order": ["hero", "benefits", "weather", "install", "final"]
 }

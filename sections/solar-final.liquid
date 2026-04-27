@@ -1,0 +1,416 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+{%- style -%}
+  .solar-final {
+    background: radial-gradient(circle at top, #1f3b57 0%, #07111c 48%, #02060a 100%);
+    padding: clamp(56px, 8vw, 96px) 20px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solar-final::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 540px;
+    height: 540px;
+    background: radial-gradient(circle, rgba(255, 207, 77, 0.18), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .solar-final__container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 42px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .solar-final__badge {
+    display: inline-block;
+    background: rgba(255, 207, 77, 0.15);
+    color: #ffd45c;
+    border: 1px solid rgba(255, 207, 77, 0.4);
+    padding: 9px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .solar-final h2 {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.06;
+    margin: 0 0 18px;
+    color: #ffffff;
+    letter-spacing: -1.1px;
+    font-weight: 700;
+  }
+
+  .solar-final__offer > p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #d8e4f0;
+    margin: 0 0 28px;
+    max-width: 620px;
+  }
+
+  .solar-final__box {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 207, 77, 0.22);
+    border-radius: 26px;
+    padding: 28px;
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+  }
+
+  .solar-final__label {
+    display: block;
+    color: #ffd45c;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .solar-final__box-title {
+    display: block;
+    font-size: 22px;
+    line-height: 1.25;
+    color: #ffffff;
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .solar-final__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    margin-bottom: 18px;
+  }
+
+  .solar-final__price-current {
+    font-size: 30px;
+    font-weight: 800;
+    color: #ffd45c;
+    letter-spacing: -0.5px;
+  }
+
+  .solar-final__price-compare {
+    font-size: 17px;
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  .solar-final__box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: grid;
+    gap: 10px;
+    color: #f4f8fb;
+    font-size: 15px;
+  }
+
+  .solar-final__box ul li {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    line-height: 1.45;
+  }
+
+  .solar-final__box ul li::before {
+    content: "✓";
+    color: #ffd45c;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .solar-final__form {
+    margin: 0;
+  }
+
+  .solar-final__button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ffcf4d, #ff9f1c);
+    color: #111111;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    padding: 17px 34px;
+    border-radius: 14px;
+    box-shadow: 0 16px 38px rgba(255, 174, 31, 0.4);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .solar-final__button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 46px rgba(255, 174, 31, 0.55);
+  }
+
+  .solar-final__button svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .solar-final__button:hover svg {
+    transform: translateX(4px);
+  }
+
+  .solar-final__note {
+    text-align: center;
+    margin: 13px 0 0;
+    color: #aebdca;
+    font-size: 13.5px;
+  }
+
+  .solar-final__faq {
+    background: #ffffff;
+    color: #07111c;
+    border-radius: 26px;
+    padding: 30px;
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.32);
+  }
+
+  .solar-final__faq h3 {
+    font-size: 24px;
+    margin: 0 0 18px;
+    color: #07111c;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .solar-final__faq details {
+    border: 1px solid rgba(7, 17, 28, 0.08);
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: #f6f9fc;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .solar-final__faq details[open] {
+    border-color: rgba(255, 174, 31, 0.4);
+    background: #fffaf0;
+  }
+
+  .solar-final__faq summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #07111c;
+    font-size: 15.5px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .solar-final__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .solar-final__faq summary::after {
+    content: "+";
+    font-size: 22px;
+    color: #ff9f1c;
+    font-weight: 700;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .solar-final__faq details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .solar-final__faq p {
+    margin: 12px 0 0;
+    color: #5b6875;
+    line-height: 1.55;
+    font-size: 14.5px;
+  }
+
+  @media (max-width: 860px) {
+    .solar-final__container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .solar-final__offer {
+      text-align: center;
+    }
+    .solar-final__box {
+      text-align: left;
+    }
+    .solar-final__faq {
+      padding: 24px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="solar-final" id="comprar">
+  <div class="solar-final__container">
+    <div class="solar-final__offer">
+      {%- if section.settings.badge != blank -%}
+        <span class="solar-final__badge">{{ section.settings.badge | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p>{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+
+      <div class="solar-final__box">
+        {%- if section.settings.box_label != blank -%}
+          <span class="solar-final__label">{{ section.settings.box_label | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.box_title != blank -%}
+          <span class="solar-final__box-title">{{ section.settings.box_title | escape }}</span>
+        {%- endif -%}
+
+        {%- if product != blank and current_variant != blank -%}
+          <div class="solar-final__price">
+            <span class="solar-final__price-current">{{ current_variant.price | money }}</span>
+            {%- if current_variant.compare_at_price > current_variant.price -%}
+              <span class="solar-final__price-compare">{{ current_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- assign feature_blocks = section.blocks | where: 'type', 'feature' -%}
+        {%- if feature_blocks.size > 0 -%}
+          <ul>
+            {%- for block in feature_blocks -%}
+              <li {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if product != blank and current_variant != blank -%}
+          <form
+            action="{{ routes.cart_add_url }}"
+            method="post"
+            enctype="multipart/form-data"
+            class="solar-final__form"
+          >
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            {%- if section.settings.go_to_checkout -%}
+              <input type="hidden" name="return_to" value="/checkout">
+            {%- endif -%}
+            <button type="submit" class="solar-final__button"{% if current_variant.available == false %} disabled{% endif %}>
+              {%- if current_variant.available -%}
+                {{ section.settings.button_label | default: 'Comprar ahora' | escape }}
+              {%- else -%}
+                Agotado
+              {%- endif -%}
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+        {%- else -%}
+          <a href="{{ section.settings.fallback_link | default: '/cart' }}" class="solar-final__button">
+            {{ section.settings.button_label | default: 'Comprar ahora' | escape }}
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.note != blank -%}
+          <p class="solar-final__note">{{ section.settings.note | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="solar-final__faq">
+      {%- if section.settings.faq_heading != blank -%}
+        <h3>{{ section.settings.faq_heading | escape }}</h3>
+      {%- endif -%}
+
+      {%- assign faq_blocks = section.blocks | where: 'type', 'faq' -%}
+      {%- for block in faq_blocks -%}
+        <details {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question | escape }}</summary>
+          <p>{{ block.settings.answer | escape }}</p>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lámpara · Oferta final",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge", "label": "Etiqueta", "default": "Oferta especial" },
+    { "type": "textarea", "id": "heading", "label": "Título", "default": "Mejora la seguridad de tu hogar desde hoy" },
+    { "type": "richtext", "id": "subtitle", "label": "Subtítulo", "default": "<p>Instala una iluminación exterior automática, solar y resistente para entradas, patios, garajes, jardines y fachadas.</p>" },
+    { "type": "header", "content": "Tarjeta de oferta" },
+    { "type": "text", "id": "box_label", "label": "Etiqueta superior", "default": "Lámpara Solar de Pared" },
+    { "type": "text", "id": "box_title", "label": "Título del producto", "default": "4 Focos LED + Sensor de Movimiento" },
+    { "type": "text", "id": "button_label", "label": "Texto del botón", "default": "Comprar ahora" },
+    { "type": "checkbox", "id": "go_to_checkout", "label": "Ir directo al checkout (en lugar del carrito)", "default": false },
+    { "type": "url", "id": "fallback_link", "label": "Enlace si no estás en página de producto" },
+    { "type": "text", "id": "note", "label": "Nota debajo del botón", "default": "Stock disponible por tiempo limitado." },
+    { "type": "header", "content": "Preguntas frecuentes" },
+    { "type": "text", "id": "faq_heading", "label": "Título FAQ", "default": "Preguntas frecuentes" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Beneficio (lista ✓)",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texto", "default": "Funciona con energía solar" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Pregunta",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta", "default": "¿Necesita conexión eléctrica?" },
+        { "type": "textarea", "id": "answer", "label": "Respuesta", "default": "No. Funciona con energía solar." }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Lámpara · Oferta final",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Funciona con energía solar" } },
+        { "type": "feature", "settings": { "text": "Encendido automático por movimiento" } },
+        { "type": "feature", "settings": { "text": "Ideal para exteriores" } },
+        { "type": "feature", "settings": { "text": "Instalación fácil sin cables" } },
+        { "type": "faq", "settings": { "question": "¿Necesita conexión eléctrica?", "answer": "No. Funciona con energía solar, por lo que no requiere cables eléctricos para su uso diario." } },
+        { "type": "faq", "settings": { "question": "¿Se puede instalar en exteriores?", "answer": "Sí. Está diseñada para uso exterior en fachadas, patios, entradas, garajes y jardines." } },
+        { "type": "faq", "settings": { "question": "¿La luz se enciende sola?", "answer": "Sí. Cuenta con sensor de movimiento para activar la iluminación cuando detecta actividad cercana." } },
+        { "type": "faq", "settings": { "question": "¿Dónde se recomienda instalarla?", "answer": "En zonas donde reciba buena luz solar durante el día, como paredes exteriores, entradas o patios." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
