@@ -118,7 +118,14 @@
         "primary_link": "#comprar",
         "secondary_label": "Ver beneficios",
         "secondary_link": "#beneficios",
-        "note": "Con la exclusividad y calidad de Aurevia Market."
+        "note": "Con la exclusividad y calidad de Aurevia Market.",
+        "stat_eyebrow": "Triple strength",
+        "stat_number": "12",
+        "stat_unit": "mg",
+        "stat_sub": "Astaxantina natural por softgel",
+        "stat_row1": "Microalgas",
+        "stat_row2": "120 softgels",
+        "stat_row3": "Vegano · GMO free"
       }
     },
     "ast_benefits": {
@@ -164,7 +171,13 @@
         "tag": "Modo de uso",
         "heading": "Un softgel al día para complementar tu bienestar",
         "description": "<p>Incorpóralo a tu rutina de manera simple. Una cápsula al día acompañada de una comida es suficiente para apoyar tu sistema antioxidante diariamente.</p>",
-        "disclaimer": "* Suplemento alimenticio. No reemplaza una dieta balanceada. Consulta a un profesional de salud antes de iniciar cualquier suplementación si tomas medicación."
+        "disclaimer": "* Suplemento alimenticio. No reemplaza una dieta balanceada. Consulta a un profesional de salud antes de iniciar cualquier suplementación si tomas medicación.",
+        "badge_top_eyebrow": "Dosis diaria",
+        "badge_top_value": "1 softgel",
+        "badge_top_sub": "12 mg de astaxantina",
+        "badge_bottom_eyebrow": "Suministro",
+        "badge_bottom_value": "120 softgels",
+        "badge_bottom_sub": "4 meses de uso"
       }
     },
     "ast_final": {

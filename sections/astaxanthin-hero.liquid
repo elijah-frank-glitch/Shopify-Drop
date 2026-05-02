@@ -265,6 +265,132 @@
     pointer-events: none;
   }
 
+  .ast-hero__stat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 22px;
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at top right, rgba(227, 67, 79, 0.35), transparent 60%),
+      linear-gradient(160deg, #1a0608 0%, #0a0203 100%);
+    border: 1px solid rgba(227, 67, 79, 0.28);
+    box-shadow: 0 24px 60px rgba(196, 32, 43, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+    isolation: isolate;
+    aspect-ratio: 3 / 4;
+  }
+
+  .ast-hero__stat::before {
+    content: "";
+    position: absolute;
+    bottom: -40%;
+    right: -30%;
+    width: 75%;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(227, 67, 79, 0.22), transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    z-index: 0;
+  }
+
+  .ast-hero__stat-eyebrow {
+    position: relative;
+    z-index: 1;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ff8c95;
+    font-weight: 800;
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .ast-hero__stat-big {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 14px 0 6px;
+    line-height: 0.9;
+  }
+
+  .ast-hero__stat-num {
+    font-size: clamp(54px, 5vw, 78px);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -3px;
+    background: linear-gradient(180deg, #ffffff 0%, #ffd0d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .ast-hero__stat-unit {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff5460;
+    letter-spacing: 0.04em;
+  }
+
+  .ast-hero__stat-sub {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 18px;
+    color: #d8c4c6;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .ast-hero__stat-divider {
+    position: relative;
+    z-index: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(227, 67, 79, 0.45), transparent);
+    margin-bottom: 14px;
+  }
+
+  .ast-hero__stat-rows {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 8px;
+  }
+
+  .ast-hero__stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    color: #f0f0f0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ast-hero__stat-row span:first-child {
+    color: #aaa;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .ast-hero__stat-capsule {
+    position: absolute;
+    right: -22px;
+    top: 22%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #e3434f 0%, #c4202b 50%, #6a0c14 100%);
+    box-shadow: 0 0 60px rgba(196, 32, 43, 0.7),
+                inset -10px -10px 30px rgba(0, 0, 0, 0.4),
+                inset 10px 10px 20px rgba(255, 200, 200, 0.18);
+    z-index: 0;
+    opacity: 0.8;
+  }
+
   @media (max-width: 900px) {
     .ast-hero__container {
       grid-template-columns: 1fr;
@@ -352,12 +478,31 @@
             <img src="{{ 'astaxanthin-3.jpg' | asset_url }}" alt="" loading="eager">
           {%- endif -%}
         </div>
-        <div class="ast-hero__img">
-          {%- if section.settings.image_right != blank -%}
-            {{ section.settings.image_right | image_url: width: 600 | image_tag: loading: 'eager', alt: '' }}
-          {%- else -%}
-            <img src="{{ 'astaxanthin-1.jpg' | asset_url }}" alt="" loading="eager">
-          {%- endif -%}
+        <div class="ast-hero__stat">
+          <p class="ast-hero__stat-eyebrow">{{ section.settings.stat_eyebrow | default: 'Triple strength' | escape }}</p>
+          <div>
+            <div class="ast-hero__stat-big">
+              <span class="ast-hero__stat-num">{{ section.settings.stat_number | default: '12' | escape }}</span>
+              <span class="ast-hero__stat-unit">{{ section.settings.stat_unit | default: 'mg' | escape }}</span>
+            </div>
+            <p class="ast-hero__stat-sub">{{ section.settings.stat_sub | default: 'Astaxantina natural por softgel' | escape }}</p>
+            <div class="ast-hero__stat-divider"></div>
+            <div class="ast-hero__stat-rows">
+              <div class="ast-hero__stat-row">
+                <span>Origen</span>
+                <span>{{ section.settings.stat_row1 | default: 'Microalgas' | escape }}</span>
+              </div>
+              <div class="ast-hero__stat-row">
+                <span>Cápsulas</span>
+                <span>{{ section.settings.stat_row2 | default: '120 softgels' | escape }}</span>
+              </div>
+              <div class="ast-hero__stat-row">
+                <span>Apto</span>
+                <span>{{ section.settings.stat_row3 | default: 'Vegano · GMO free' | escape }}</span>
+              </div>
+            </div>
+          </div>
+          <span class="ast-hero__stat-capsule" aria-hidden="true"></span>
         </div>
       </div>
     </div>
@@ -405,7 +550,14 @@
     { "type": "header", "content": "Imágenes" },
     { "type": "image_picker", "id": "image_main", "label": "Imagen grande (arriba)" },
     { "type": "image_picker", "id": "image_left", "label": "Imagen pequeña izquierda" },
-    { "type": "image_picker", "id": "image_right", "label": "Imagen pequeña derecha" }
+    { "type": "header", "content": "Tarjeta de stats (visual premium)" },
+    { "type": "text", "id": "stat_eyebrow", "label": "Etiqueta superior", "default": "Triple strength" },
+    { "type": "text", "id": "stat_number", "label": "Número grande", "default": "12" },
+    { "type": "text", "id": "stat_unit", "label": "Unidad", "default": "mg" },
+    { "type": "text", "id": "stat_sub", "label": "Subtítulo", "default": "Astaxantina natural por softgel" },
+    { "type": "text", "id": "stat_row1", "label": "Fila 1 - Valor", "default": "Microalgas" },
+    { "type": "text", "id": "stat_row2", "label": "Fila 2 - Valor", "default": "120 softgels" },
+    { "type": "text", "id": "stat_row3", "label": "Fila 3 - Valor", "default": "Vegano · GMO free" }
   ],
   "blocks": [
     {
