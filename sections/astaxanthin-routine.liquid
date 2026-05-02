@@ -1,0 +1,246 @@
+{%- liquid
+  assign step_index = 0
+-%}
+
+{%- if product.handle contains 'astaxan' or product.handle contains 'astaxanthin' -%}
+
+{%- style -%}
+  .ast-routine {
+    background:
+      radial-gradient(circle at 80% 20%, rgba(196, 32, 43, 0.35), transparent 60%),
+      linear-gradient(135deg, #2a0608 0%, #4a0e15 50%, #2a0608 100%);
+    padding: clamp(60px, 8vw, 100px) 20px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ast-routine::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(227, 67, 79, 0.3), transparent 65%);
+    filter: blur(70px);
+    pointer-events: none;
+  }
+
+  .ast-routine__container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ast-routine__tag {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffd0d4;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .ast-routine h2 {
+    font-size: clamp(32px, 4.6vw, 54px);
+    line-height: 1.05;
+    margin: 0 0 18px;
+    color: #ffffff;
+    letter-spacing: -1.4px;
+    font-weight: 700;
+  }
+
+  .ast-routine__desc {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #f0d4d6;
+    margin: 0 0 32px;
+    max-width: 560px;
+  }
+
+  .ast-routine__steps {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .ast-routine__step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    padding: 18px;
+    backdrop-filter: blur(8px);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .ast-routine__step:hover {
+    transform: translateX(6px);
+    border-color: rgba(255, 80, 90, 0.5);
+    background: rgba(196, 32, 43, 0.18);
+  }
+
+  .ast-routine__step strong {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ffffff 0%, #ffd0d4 100%);
+    color: #c4202b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .ast-routine__step h3 {
+    margin: 0 0 5px;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .ast-routine__step p {
+    margin: 0;
+    color: #f0d4d6;
+    line-height: 1.5;
+    font-size: 14.5px;
+  }
+
+  .ast-routine__disclaimer {
+    margin: 0;
+    color: #d8b8bb;
+    font-size: 12.5px;
+    line-height: 1.5;
+    opacity: 0.85;
+    max-width: 560px;
+  }
+
+  .ast-routine__visual {
+    position: relative;
+  }
+
+  .ast-routine__visual::before {
+    content: "";
+    position: absolute;
+    inset: -16px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 65%);
+    border-radius: 32px;
+    filter: blur(14px);
+    z-index: 0;
+  }
+
+  .ast-routine__visual img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 26px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  @media (max-width: 900px) {
+    .ast-routine__container {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="ast-routine">
+  <div class="ast-routine__container">
+    <div class="ast-routine__content">
+      {%- if section.settings.tag != blank -%}
+        <span class="ast-routine__tag">{{ section.settings.tag | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="ast-routine__desc">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      <div class="ast-routine__steps">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+            {%- assign step_index = step_index | plus: 1 -%}
+            <div class="ast-routine__step" {{ block.shopify_attributes }}>
+              <strong>{{ step_index }}</strong>
+              <div>
+                <h3>{{ block.settings.title | escape }}</h3>
+                <p>{{ block.settings.text | escape }}</p>
+              </div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.disclaimer != blank -%}
+        <p class="ast-routine__disclaimer">{{ section.settings.disclaimer | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ast-routine__visual">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+      {%- else -%}
+        <img src="{{ 'astaxanthin-1.jpg' | asset_url }}" alt="{{ section.settings.heading | escape }}" loading="lazy">
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Astaxanthin · Rutina",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Etiqueta", "default": "Modo de uso" },
+    { "type": "textarea", "id": "heading", "label": "Título", "default": "Un softgel al día para complementar tu bienestar" },
+    { "type": "richtext", "id": "description", "label": "Descripción", "default": "<p>Incorpóralo a tu rutina de manera simple. Una cápsula al día acompañada de una comida es suficiente para apoyar tu sistema antioxidante diariamente.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Imagen lateral" },
+    { "type": "textarea", "id": "disclaimer", "label": "Disclaimer", "default": "* Suplemento alimenticio. No reemplaza una dieta balanceada. Consulta a un profesional de salud antes de iniciar cualquier suplementación si tomas medicación." }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Paso",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título", "default": "Toma 1 softgel" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Una cápsula al día es la dosis recomendada." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Astaxanthin · Rutina",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Toma 1 softgel", "text": "Una cápsula al día es la dosis recomendada." } },
+        { "type": "step", "settings": { "title": "Acompáñala con una comida", "text": "Mejora la absorción si la tomas con una comida que contenga grasas." } },
+        { "type": "step", "settings": { "title": "Sé constante", "text": "El efecto es acumulativo. Notarás resultados a partir de 4–6 semanas." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

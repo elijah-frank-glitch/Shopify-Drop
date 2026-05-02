@@ -1,0 +1,335 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+
+{%- if product.handle contains 'astaxan' or product.handle contains 'astaxanthin' -%}
+
+{%- style -%}
+  .ast-formula {
+    background: #ffffff;
+    padding: clamp(60px, 8vw, 100px) 20px;
+  }
+
+  .ast-formula__container {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .ast-formula__top {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+
+  .ast-formula__tag {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(196, 32, 43, 0.1);
+    color: #c4202b;
+    border: 1px solid rgba(196, 32, 43, 0.3);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .ast-formula h2 {
+    font-size: clamp(32px, 4.6vw, 54px);
+    line-height: 1.05;
+    margin: 0 0 18px;
+    color: #14080a;
+    letter-spacing: -1.5px;
+    font-weight: 700;
+  }
+
+  .ast-formula h2 em {
+    color: #c4202b;
+    font-style: normal;
+  }
+
+  .ast-formula__desc {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #5a4d4f;
+    margin: 0 0 26px;
+  }
+
+  .ast-formula__visual {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #fef9f4, #f3ebe0);
+    box-shadow: 0 26px 70px rgba(20, 8, 10, 0.1);
+    border: 1px solid rgba(20, 8, 10, 0.06);
+  }
+
+  .ast-formula__visual::before {
+    content: "";
+    position: absolute;
+    inset: -8% -8% auto auto;
+    width: 60%;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(196, 32, 43, 0.16), transparent 65%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .ast-formula__visual img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 4 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ast-formula__features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    padding: 28px;
+    background: #faf6f0;
+    border-radius: 24px;
+    border: 1px solid rgba(20, 8, 10, 0.07);
+    margin-bottom: 36px;
+  }
+
+  .ast-formula__feature {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .ast-formula__feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(227, 67, 79, 0.18), rgba(196, 32, 43, 0.08));
+    color: #c4202b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .ast-formula__feature-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ast-formula__feature h4 {
+    margin: 0 0 4px;
+    font-size: 14.5px;
+    color: #14080a;
+    font-weight: 700;
+  }
+
+  .ast-formula__feature p {
+    margin: 0;
+    color: #6b5d5f;
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  .ast-formula__cta-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .ast-formula__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #e3434f 0%, #c4202b 50%, #8a1620 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 17px 38px;
+    border-radius: 14px;
+    box-shadow: 0 14px 36px rgba(196, 32, 43, 0.42);
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+    border: 0;
+    cursor: pointer;
+    min-width: 280px;
+  }
+
+  .ast-formula__cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 46px rgba(196, 32, 43, 0.56);
+  }
+
+  .ast-formula__cta svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .ast-formula__cta:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 900px) {
+    .ast-formula__top {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .ast-formula__features {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 22px 16px;
+    }
+    .ast-formula__cta {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+{%- endstyle -%}
+
+{%- capture icon_microalga -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></svg>{%- endcapture -%}
+{%- capture icon_leaf -%}<svg viewBox="0 0 24 24"><path d="M20 4c-9 0-15 5-15 13 0 1 .2 2 .5 3"/><path d="M20 4c0 9-5 15-13 15"/></svg>{%- endcapture -%}
+{%- capture icon_drop -%}<svg viewBox="0 0 24 24"><path d="M12 3s7 7.5 7 12a7 7 0 0 1-14 0c0-4.5 7-12 7-12z"/></svg>{%- endcapture -%}
+{%- capture icon_shield -%}<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>{%- endcapture -%}
+{%- capture icon_bolt -%}<svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg>{%- endcapture -%}
+{%- capture icon_check -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>{%- endcapture -%}
+
+<section class="ast-formula" id="ast-formula-{{ section.id }}">
+  <div class="ast-formula__container">
+    <div class="ast-formula__top">
+      <div class="ast-formula__text">
+        {%- if section.settings.tag != blank -%}
+          <span class="ast-formula__tag">{{ section.settings.tag | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <p class="ast-formula__desc">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+
+      <div class="ast-formula__visual">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+        {%- else -%}
+          <img src="{{ 'astaxanthin-4.jpg' | asset_url }}" alt="Astaxanthin softgels" loading="lazy">
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="ast-formula__features">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature' -%}
+            <div class="ast-formula__feature" {{ block.shopify_attributes }}>
+              <div class="ast-formula__feature-icon">
+                {%- case block.settings.icon -%}
+                  {%- when 'microalga' -%}{{ icon_microalga }}
+                  {%- when 'leaf' -%}{{ icon_leaf }}
+                  {%- when 'drop' -%}{{ icon_drop }}
+                  {%- when 'shield' -%}{{ icon_shield }}
+                  {%- when 'bolt' -%}{{ icon_bolt }}
+                  {%- else -%}{{ icon_check }}
+                {%- endcase -%}
+              </div>
+              <h4>{{ block.settings.title | escape }}</h4>
+              {%- if block.settings.text != blank -%}
+                <p>{{ block.settings.text | escape }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="ast-formula__cta-wrap">
+      {%- if product != blank and current_variant != blank -%}
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="ast-formula__cta"{% if current_variant.available == false %} disabled{% endif %}>
+            {%- if current_variant.available -%}
+              {{ section.settings.cta_label | default: 'Agregar al carrito' | escape }}
+            {%- else -%}
+              Agotado
+            {%- endif -%}
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+      {%- else -%}
+        <a href="#comprar" class="ast-formula__cta" data-ast-cta>
+          {{ section.settings.cta_label | default: 'Agregar al carrito' | escape }}
+          <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Astaxanthin · Fórmula",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Etiqueta", "default": "Fórmula concentrada" },
+    { "type": "richtext", "id": "heading", "label": "Título", "default": "<p>12 mg de astaxantina en cada <em>softgel</em></p>" },
+    { "type": "richtext", "id": "description", "label": "Descripción", "default": "<p>Una potente cantidad de astaxantina natural derivada de microalgas, diseñada para apoyar tu rutina diaria con calidad premium y trazabilidad por lote.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Imagen del producto" },
+    { "type": "header", "content": "Botón" },
+    { "type": "text", "id": "cta_label", "label": "Texto del botón", "default": "Agregar al carrito" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "default": "microalga",
+          "options": [
+            { "value": "microalga", "label": "Microalga" },
+            { "value": "leaf", "label": "Hoja (vegano)" },
+            { "value": "drop", "label": "Gota (natural)" },
+            { "value": "shield", "label": "Escudo (limpio)" },
+            { "value": "bolt", "label": "Energía" },
+            { "value": "check", "label": "Check" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Título", "default": "From microalgae" },
+        { "type": "text", "id": "text", "label": "Texto", "default": "Origen 100% natural" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Astaxanthin · Fórmula",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "microalga", "title": "From microalgae", "text": "Origen 100% natural" } },
+        { "type": "feature", "settings": { "icon": "leaf", "title": "Vegan", "text": "Cápsula vegetal" } },
+        { "type": "feature", "settings": { "icon": "drop", "title": "Natural", "text": "Sin químicos añadidos" } },
+        { "type": "feature", "settings": { "icon": "shield", "title": "Lab tested", "text": "Verificado por lote" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

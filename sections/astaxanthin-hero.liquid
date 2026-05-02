@@ -1,0 +1,432 @@
+{%- liquid
+  assign is_ast = false
+  if product.handle contains 'astaxan' or product.handle contains 'astaxanthin'
+    assign is_ast = true
+  endif
+-%}
+
+{%- if is_ast -%}
+
+{%- style -%}
+  body { background: #0a0a0a; }
+
+  .ast-hero {
+    background: radial-gradient(circle at top right, #2b0408 0%, #14080a 45%, #0a0203 100%);
+    padding: clamp(56px, 8vw, 100px) 20px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ast-hero::before {
+    content: "";
+    position: absolute;
+    top: -200px;
+    right: -150px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(196, 32, 43, 0.4), transparent 65%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .ast-hero::after {
+    content: "";
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(196, 32, 43, 0.18), transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .ast-hero__container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ast-hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .ast-hero__tag {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .ast-hero__tag--red {
+    background: rgba(196, 32, 43, 0.16);
+    color: #ff5460;
+    border: 1px solid rgba(196, 32, 43, 0.45);
+  }
+
+  .ast-hero__tag--gold {
+    background: rgba(212, 175, 55, 0.12);
+    color: #d4af37;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+  }
+
+  .ast-hero h1 {
+    font-size: clamp(38px, 5.4vw, 72px);
+    line-height: 0.98;
+    margin: 0 0 12px;
+    color: #ffffff;
+    letter-spacing: -2px;
+    font-weight: 800;
+  }
+
+  .ast-hero h1 em {
+    color: #e3434f;
+    font-style: normal;
+  }
+
+  .ast-hero__sub {
+    font-size: clamp(20px, 2.2vw, 28px);
+    color: #c8c8c8;
+    margin: 0 0 22px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
+
+  .ast-hero__desc {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: #b8b8b8;
+    margin: 0 0 28px;
+    max-width: 540px;
+  }
+
+  .ast-hero__bullets {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .ast-hero__bullet {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #f0f0f0;
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  .ast-hero__bullet .dot {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #e3434f, #8a1620);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(196, 32, 43, 0.5);
+  }
+
+  .ast-hero__bullet .dot svg {
+    width: 11px;
+    height: 11px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ast-hero__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .ast-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 15px 28px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .ast-btn--primary {
+    background: linear-gradient(135deg, #e3434f 0%, #c4202b 50%, #8a1620 100%);
+    color: #ffffff;
+    box-shadow: 0 14px 32px rgba(196, 32, 43, 0.45);
+  }
+
+  .ast-btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 42px rgba(196, 32, 43, 0.6);
+  }
+
+  .ast-btn--outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .ast-btn--outline:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .ast-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .ast-btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  .ast-hero__note {
+    margin: 0;
+    color: #888;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+  }
+
+  .ast-hero__visual {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ast-hero__visual-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .ast-hero__img {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #1a0608;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(196, 32, 43, 0.18);
+  }
+
+  .ast-hero__img img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ast-hero__img--main {
+    grid-column: span 2;
+  }
+
+  .ast-hero__img--main img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .ast-hero__img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.35));
+    pointer-events: none;
+  }
+
+  @media (max-width: 900px) {
+    .ast-hero__container {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .ast-hero__buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .ast-btn {
+      width: 100%;
+    }
+  }
+{%- endstyle -%}
+
+<section class="ast-hero" id="ast-hero-{{ section.id }}">
+  <div class="ast-hero__container">
+    <div class="ast-hero__text">
+      <div class="ast-hero__tags">
+        {%- if section.settings.tag1 != blank -%}
+          <span class="ast-hero__tag ast-hero__tag--red">{{ section.settings.tag1 | escape }}</span>
+        {%- endif -%}
+        {%- if section.settings.tag2 != blank -%}
+          <span class="ast-hero__tag ast-hero__tag--gold">{{ section.settings.tag2 | escape }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.heading != blank -%}
+        <h1>{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="ast-hero__sub">{{ section.settings.subheading | escape }}</p>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="ast-hero__desc">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="ast-hero__bullets">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'bullet' -%}
+              <div class="ast-hero__bullet" {{ block.shopify_attributes }}>
+                <span class="dot" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>
+                </span>
+                <span>{{ block.settings.text | escape }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      <div class="ast-hero__buttons">
+        {%- if section.settings.primary_label != blank -%}
+          <a href="{{ section.settings.primary_link | default: '#comprar' }}" class="ast-btn ast-btn--primary" data-ast-cta>
+            {{ section.settings.primary_label | escape }}
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        {%- endif -%}
+        {%- if section.settings.secondary_label != blank -%}
+          <a href="{{ section.settings.secondary_link | default: '#beneficios' }}" class="ast-btn ast-btn--outline" data-ast-cta-secondary>
+            {{ section.settings.secondary_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <p class="ast-hero__note">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ast-hero__visual">
+      <div class="ast-hero__visual-stack">
+        <div class="ast-hero__img ast-hero__img--main">
+          {%- if section.settings.image_main != blank -%}
+            {{ section.settings.image_main | image_url: width: 1200 | image_tag: loading: 'eager', alt: section.settings.heading }}
+          {%- else -%}
+            <img src="{{ 'astaxanthin-2.jpg' | asset_url }}" alt="Astaxanthin 12 mg" loading="eager">
+          {%- endif -%}
+        </div>
+        <div class="ast-hero__img">
+          {%- if section.settings.image_left != blank -%}
+            {{ section.settings.image_left | image_url: width: 600 | image_tag: loading: 'eager', alt: '' }}
+          {%- else -%}
+            <img src="{{ 'astaxanthin-3.jpg' | asset_url }}" alt="" loading="eager">
+          {%- endif -%}
+        </div>
+        <div class="ast-hero__img">
+          {%- if section.settings.image_right != blank -%}
+            {{ section.settings.image_right | image_url: width: 600 | image_tag: loading: 'eager', alt: '' }}
+          {%- else -%}
+            <img src="{{ 'astaxanthin-1.jpg' | asset_url }}" alt="" loading="eager">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    function scrollToBuy(e, btn) {
+      var href = btn.getAttribute('href') || '';
+      if (href === '#comprar' || href === '#beneficios' || href === '') {
+        e.preventDefault();
+        var sel = href === '#beneficios' ? '#beneficios' : null;
+        var target = (sel && document.querySelector(sel))
+          || document.getElementById('comprar')
+          || document.querySelector('product-form')
+          || document.querySelector('form[action*="/cart/add"]');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    document.querySelectorAll('#ast-hero-{{ section.id }} [data-ast-cta], #ast-hero-{{ section.id }} [data-ast-cta-secondary]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) { scrollToBuy(e, btn); });
+    });
+  })();
+</script>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Astaxanthin · Hero",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "tag1", "label": "Etiqueta roja", "default": "Astaxanthin 12 mg" },
+    { "type": "text", "id": "tag2", "label": "Etiqueta dorada", "default": "Triple strength" },
+    { "type": "richtext", "id": "heading", "label": "Título", "default": "<p>Potencia antioxidante <em>premium</em></p>" },
+    { "type": "text", "id": "subheading", "label": "Subtítulo", "default": "desde microalgas" },
+    { "type": "richtext", "id": "description", "label": "Descripción", "default": "<p>Astaxantina de 12 mg en una fórmula diseñada para personas que valoran la salud, la energía y el bienestar diario, concentrada y de alta calidad.</p>" },
+    { "type": "header", "content": "Botones" },
+    { "type": "text", "id": "primary_label", "label": "Botón principal", "default": "Comprar ahora" },
+    { "type": "url", "id": "primary_link", "label": "Enlace principal (deja en #comprar)" },
+    { "type": "text", "id": "secondary_label", "label": "Botón secundario", "default": "Ver beneficios" },
+    { "type": "url", "id": "secondary_link", "label": "Enlace secundario (deja en #beneficios)" },
+    { "type": "text", "id": "note", "label": "Nota inferior", "default": "Con la exclusividad y calidad de Aurevia Market." },
+    { "type": "header", "content": "Imágenes" },
+    { "type": "image_picker", "id": "image_main", "label": "Imagen grande (arriba)" },
+    { "type": "image_picker", "id": "image_left", "label": "Imagen pequeña izquierda" },
+    { "type": "image_picker", "id": "image_right", "label": "Imagen pequeña derecha" }
+  ],
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Beneficio (lista)",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texto", "default": "Beneficio del producto" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Astaxanthin · Hero",
+      "blocks": [
+        { "type": "bullet", "settings": { "text": "12 mg por softgel" } },
+        { "type": "bullet", "settings": { "text": "Hecho de microalgas" } },
+        { "type": "bullet", "settings": { "text": "120 softgels por envase" } },
+        { "type": "bullet", "settings": { "text": "GMO free · Gluten free · Lab tested" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

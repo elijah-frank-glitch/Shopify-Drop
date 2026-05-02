@@ -3,7 +3,13 @@
   if image_source == blank and product != blank
     assign image_source = product.featured_media
   endif
+  assign is_lampara = false
+  if product.handle contains 'lampara' or product.handle contains 'solar'
+    assign is_lampara = true
+  endif
 -%}
+
+{%- if is_lampara -%}
 
 {%- style -%}
   #shopify-section-{{ section.id }} {
@@ -372,6 +378,8 @@
     });
   })();
 </script>
+
+{%- endif -%}
 
 {% schema %}
 {

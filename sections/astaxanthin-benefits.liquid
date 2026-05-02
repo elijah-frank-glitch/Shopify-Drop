@@ -1,0 +1,255 @@
+{%- if product.handle contains 'astaxan' or product.handle contains 'astaxanthin' -%}
+
+{%- style -%}
+  .ast-benefits {
+    background: #faf6f0;
+    padding: clamp(60px, 8vw, 100px) 20px;
+    position: relative;
+  }
+
+  .ast-benefits__container {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .ast-benefits__header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 50px;
+  }
+
+  .ast-benefits__tag {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(196, 32, 43, 0.1);
+    color: #c4202b;
+    border: 1px solid rgba(196, 32, 43, 0.3);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .ast-benefits h2 {
+    font-size: clamp(30px, 4.4vw, 50px);
+    line-height: 1.06;
+    margin: 0 0 16px;
+    color: #14080a;
+    letter-spacing: -1.4px;
+    font-weight: 700;
+  }
+
+  .ast-benefits__intro {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #5a4d4f;
+    margin: 0;
+  }
+
+  .ast-benefits__grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .ast-benefits__visual {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #ffffff, #f0e9df);
+    padding: 24px;
+    box-shadow: 0 22px 60px rgba(20, 8, 10, 0.1);
+    border: 1px solid rgba(20, 8, 10, 0.06);
+  }
+
+  .ast-benefits__visual img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 22px;
+    display: block;
+  }
+
+  .ast-benefits__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .ast-benefits__card {
+    background: #ffffff;
+    border: 1px solid rgba(20, 8, 10, 0.07);
+    border-radius: 20px;
+    padding: 26px 22px;
+    box-shadow: 0 14px 38px rgba(20, 8, 10, 0.05);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+  }
+
+  .ast-benefits__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 50px rgba(196, 32, 43, 0.18);
+    border-color: rgba(196, 32, 43, 0.3);
+  }
+
+  .ast-benefits__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(227, 67, 79, 0.15), rgba(196, 32, 43, 0.08));
+    color: #c4202b;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .ast-benefits__icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ast-benefits__card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: #14080a;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .ast-benefits__card p {
+    margin: 0;
+    color: #6b5d5f;
+    line-height: 1.55;
+    font-size: 14.5px;
+  }
+
+  @media (max-width: 900px) {
+    .ast-benefits__grid {
+      grid-template-columns: 1fr;
+    }
+    .ast-benefits__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+{%- endstyle -%}
+
+{%- capture icon_heart -%}<svg viewBox="0 0 24 24"><path d="M20.8 6.6a5.2 5.2 0 0 0-8.8-2.3 5.2 5.2 0 0 0-8.8 2.3c-1 4.6 5 8.8 8.8 11.6 3.8-2.8 9.8-7 8.8-11.6z"/></svg>{%- endcapture -%}
+{%- capture icon_capsule -%}<svg viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="6" rx="3"/><path d="M12 9v6"/></svg>{%- endcapture -%}
+{%- capture icon_leaf -%}<svg viewBox="0 0 24 24"><path d="M20 4c-9 0-15 5-15 13 0 1 .2 2 .5 3"/><path d="M20 4c0 9-5 15-13 15"/></svg>{%- endcapture -%}
+{%- capture icon_shield -%}<svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>{%- endcapture -%}
+{%- capture icon_bolt -%}<svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-2 8 9-12h-7z"/></svg>{%- endcapture -%}
+{%- capture icon_eye -%}<svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>{%- endcapture -%}
+{%- capture icon_certificate -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>{%- endcapture -%}
+{%- capture icon_star -%}<svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.5 6 .9-4.3 4.2 1 6-5.4-2.8-5.4 2.8 1-6L3.3 9.4l6-.9z"/></svg>{%- endcapture -%}
+
+<section class="ast-benefits" id="beneficios">
+  <div class="ast-benefits__container">
+    <div class="ast-benefits__header">
+      {%- if section.settings.tag != blank -%}
+        <span class="ast-benefits__tag">{{ section.settings.tag | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="ast-benefits__intro">{{ section.settings.intro }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ast-benefits__grid">
+      <div class="ast-benefits__visual">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.heading }}
+        {%- else -%}
+          <img src="{{ 'astaxanthin-3.jpg' | asset_url }}" alt="Astaxanthin 12 mg" loading="lazy">
+        {%- endif -%}
+      </div>
+
+      <div class="ast-benefits__cards">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'card' -%}
+            <div class="ast-benefits__card" {{ block.shopify_attributes }}>
+              <div class="ast-benefits__icon">
+                {%- case block.settings.icon -%}
+                  {%- when 'heart' -%}{{ icon_heart }}
+                  {%- when 'capsule' -%}{{ icon_capsule }}
+                  {%- when 'leaf' -%}{{ icon_leaf }}
+                  {%- when 'shield' -%}{{ icon_shield }}
+                  {%- when 'bolt' -%}{{ icon_bolt }}
+                  {%- when 'eye' -%}{{ icon_eye }}
+                  {%- when 'certificate' -%}{{ icon_certificate }}
+                  {%- else -%}{{ icon_star }}
+                {%- endcase -%}
+              </div>
+              <h3>{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Astaxanthin · Beneficios",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Etiqueta", "default": "Beneficios diarios" },
+    { "type": "textarea", "id": "heading", "label": "Título", "default": "Bienestar diario en una fórmula concentrada" },
+    { "type": "richtext", "id": "intro", "label": "Introducción", "default": "<p>Astaxantina de 12 mg de microalgas, creada para apoyar tu energía diaria, recuperación y bienestar a largo plazo.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Imagen lateral" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Tarjeta de beneficio",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icono",
+          "default": "heart",
+          "options": [
+            { "value": "heart", "label": "Corazón (antioxidante)" },
+            { "value": "capsule", "label": "Cápsula" },
+            { "value": "leaf", "label": "Hoja (vegano)" },
+            { "value": "shield", "label": "Escudo" },
+            { "value": "bolt", "label": "Energía" },
+            { "value": "eye", "label": "Vista" },
+            { "value": "certificate", "label": "Certificado" },
+            { "value": "star", "label": "Estrella" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Título", "default": "Apoyo antioxidante" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Una de las moléculas antioxidantes más potentes presentes en la naturaleza." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Astaxanthin · Beneficios",
+      "blocks": [
+        { "type": "card", "settings": { "icon": "heart", "title": "Apoyo antioxidante", "text": "Una de las moléculas antioxidantes más potentes presentes en la naturaleza." } },
+        { "type": "card", "settings": { "icon": "capsule", "title": "Triple strength 12 mg", "text": "Dosis concentrada por softgel para apoyar tu rutina diaria." } },
+        { "type": "card", "settings": { "icon": "leaf", "title": "Vegano", "text": "Cápsulas vegetales sin ingredientes de origen animal." } },
+        { "type": "card", "settings": { "icon": "shield", "title": "Fórmula limpia", "text": "GMO free, gluten free, sin transgénicos ni ingredientes innecesarios." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,6 +1,6 @@
 {
   "sections": {
-    "hero": {
+    "lampara_hero": {
       "type": "lampara-hero",
       "blocks": {
         "b1": { "type": "benefit", "settings": { "text": "4 focos LED de alta visibilidad" } },
@@ -20,7 +20,7 @@
         "floating_subtitle": "Ideal para exteriores"
       }
     },
-    "benefits": {
+    "lampara_benefits": {
       "type": "solar-benefits",
       "blocks": {
         "c1": { "type": "card", "settings": { "icon": "☀️", "title": "Carga solar automática", "text": "Su panel solar integrado aprovecha la luz del día para funcionar durante la noche." } },
@@ -37,7 +37,7 @@
         "tag_subtitle": "Iluminación amplia y eficiente"
       }
     },
-    "weather": {
+    "lampara_weather": {
       "type": "solar-weather",
       "blocks": {
         "f1": { "type": "feature", "settings": { "icon": "🌧️", "title": "Resistente al agua", "text": "Ideal para zonas expuestas a lluvia y humedad." } },
@@ -54,7 +54,7 @@
         "button_link": "#comprar"
       }
     },
-    "install": {
+    "lampara_install": {
       "type": "solar-install",
       "blocks": {
         "s1": { "type": "step", "settings": { "title": "Elige el lugar ideal", "text": "Instálala en una zona exterior con luz solar durante el día." } },
@@ -74,7 +74,7 @@
         "button_link": "#comprar"
       }
     },
-    "final": {
+    "lampara_final": {
       "type": "solar-final",
       "blocks": {
         "f1": { "type": "feature", "settings": { "text": "Funciona con energía solar" } },
@@ -98,7 +98,112 @@
         "note": "Stock disponible por tiempo limitado.",
         "faq_heading": "Preguntas frecuentes"
       }
+    },
+    "ast_hero": {
+      "type": "astaxanthin-hero",
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "12 mg por softgel" } },
+        "b2": { "type": "bullet", "settings": { "text": "Hecho de microalgas" } },
+        "b3": { "type": "bullet", "settings": { "text": "120 softgels por envase" } },
+        "b4": { "type": "bullet", "settings": { "text": "GMO free · Gluten free · Lab tested" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "tag1": "Astaxanthin 12 mg",
+        "tag2": "Triple strength",
+        "heading": "<p>Potencia antioxidante <em>premium</em></p>",
+        "subheading": "desde microalgas",
+        "description": "<p>Astaxantina de 12 mg en una fórmula diseñada para personas que valoran la salud, la energía y el bienestar diario. Concentrada y de alta calidad.</p>",
+        "primary_label": "Comprar ahora",
+        "primary_link": "#comprar",
+        "secondary_label": "Ver beneficios",
+        "secondary_link": "#beneficios",
+        "note": "Con la exclusividad y calidad de Aurevia Market."
+      }
+    },
+    "ast_benefits": {
+      "type": "astaxanthin-benefits",
+      "blocks": {
+        "c1": { "type": "card", "settings": { "icon": "heart", "title": "Apoyo antioxidante", "text": "Una de las moléculas antioxidantes más potentes presentes en la naturaleza." } },
+        "c2": { "type": "card", "settings": { "icon": "capsule", "title": "Triple strength 12 mg", "text": "Dosis concentrada por softgel para apoyar tu rutina diaria." } },
+        "c3": { "type": "card", "settings": { "icon": "leaf", "title": "Vegano", "text": "Cápsulas vegetales sin ingredientes de origen animal." } },
+        "c4": { "type": "card", "settings": { "icon": "shield", "title": "Fórmula limpia", "text": "GMO free, gluten free, sin transgénicos ni ingredientes innecesarios." } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "tag": "Beneficios diarios",
+        "heading": "Bienestar diario en una fórmula concentrada",
+        "intro": "<p>Astaxantina de 12 mg de microalgas, creada para apoyar tu energía diaria, recuperación y bienestar a largo plazo.</p>"
+      }
+    },
+    "ast_formula": {
+      "type": "astaxanthin-formula",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "icon": "microalga", "title": "From microalgae", "text": "Origen 100% natural" } },
+        "f2": { "type": "feature", "settings": { "icon": "leaf", "title": "Vegan", "text": "Cápsula vegetal" } },
+        "f3": { "type": "feature", "settings": { "icon": "drop", "title": "Natural", "text": "Sin químicos añadidos" } },
+        "f4": { "type": "feature", "settings": { "icon": "shield", "title": "Lab tested", "text": "Verificado por lote" } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "tag": "Fórmula concentrada",
+        "heading": "<p>12 mg de astaxantina en cada <em>softgel</em></p>",
+        "description": "<p>Una potente cantidad de astaxantina natural derivada de microalgas, diseñada para apoyar tu rutina diaria con calidad premium y trazabilidad por lote.</p>",
+        "cta_label": "Agregar al carrito"
+      }
+    },
+    "ast_routine": {
+      "type": "astaxanthin-routine",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Toma 1 softgel", "text": "Una cápsula al día es la dosis recomendada." } },
+        "s2": { "type": "step", "settings": { "title": "Acompáñala con una comida", "text": "Mejora la absorción si la tomas con una comida que contenga grasas." } },
+        "s3": { "type": "step", "settings": { "title": "Sé constante", "text": "El efecto es acumulativo. Notarás resultados a partir de 4–6 semanas." } }
+      },
+      "block_order": ["s1", "s2", "s3"],
+      "settings": {
+        "tag": "Modo de uso",
+        "heading": "Un softgel al día para complementar tu bienestar",
+        "description": "<p>Incorpóralo a tu rutina de manera simple. Una cápsula al día acompañada de una comida es suficiente para apoyar tu sistema antioxidante diariamente.</p>",
+        "disclaimer": "* Suplemento alimenticio. No reemplaza una dieta balanceada. Consulta a un profesional de salud antes de iniciar cualquier suplementación si tomas medicación."
+      }
+    },
+    "ast_final": {
+      "type": "astaxanthin-final",
+      "blocks": {
+        "f1": { "type": "feature", "settings": { "text": "12 mg de astaxantina por softgel" } },
+        "f2": { "type": "feature", "settings": { "text": "Hecho de microalgas" } },
+        "f3": { "type": "feature", "settings": { "text": "120 softgels por envase" } },
+        "f4": { "type": "feature", "settings": { "text": "GMO free · Gluten free · Lab tested" } },
+        "q1": { "type": "faq", "settings": { "question": "¿Cuántas cápsulas vienen?", "answer": "120 softgels por envase, suficiente para 4 meses tomando 1 al día." } },
+        "q2": { "type": "faq", "settings": { "question": "¿Es vegano?", "answer": "La astaxantina proviene de microalgas y la cápsula es de origen vegetal, sí es apto para veganos." } },
+        "q3": { "type": "faq", "settings": { "question": "¿Tiene gluten?", "answer": "No. La fórmula es gluten free, sin transgénicos y sin lactosa." } },
+        "q4": { "type": "faq", "settings": { "question": "¿Cómo se toma?", "answer": "1 softgel al día, idealmente acompañado de una comida que contenga grasas para mejor absorción." } },
+        "q5": { "type": "faq", "settings": { "question": "¿Es seguro?", "answer": "En las dosis recomendadas se considera segura. No exceder la dosis diaria. Si tomas medicación o estás embarazada, consulta a un profesional de salud." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "q1", "q2", "q3", "q4", "q5"],
+      "settings": {
+        "tag": "Listo para empezar",
+        "heading": "<p>Haz de tu bienestar una rutina <em>simple y potente</em></p>",
+        "intro": "<p>Astaxantina premium de microalgas, en una fórmula concentrada de 12 mg que cabe en un solo softgel al día.</p>",
+        "primary_label": "Comprar ahora",
+        "go_to_checkout": false,
+        "secondary_label": "Ver ingredientes",
+        "secondary_link": "#beneficios",
+        "note": "Stock limitado · Pago seguro · Envío rápido",
+        "faq_heading": "Preguntas frecuentes"
+      }
     }
   },
-  "order": ["hero", "benefits", "weather", "install", "final"]
+  "order": [
+    "lampara_hero",
+    "lampara_benefits",
+    "lampara_weather",
+    "lampara_install",
+    "lampara_final",
+    "ast_hero",
+    "ast_benefits",
+    "ast_formula",
+    "ast_routine",
+    "ast_final"
+  ]
 }

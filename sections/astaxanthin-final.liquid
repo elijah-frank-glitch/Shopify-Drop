@@ -1,0 +1,428 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+-%}
+
+{%- if product.handle contains 'astaxan' or product.handle contains 'astaxanthin' -%}
+
+{%- style -%}
+  .ast-final {
+    background: radial-gradient(circle at top, #2b0408 0%, #14080a 50%, #0a0203 100%);
+    padding: clamp(60px, 8vw, 100px) 20px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ast-final::before {
+    content: "";
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 640px;
+    height: 640px;
+    background: radial-gradient(circle, rgba(196, 32, 43, 0.35), transparent 65%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .ast-final__container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ast-final__tag {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(196, 32, 43, 0.16);
+    color: #ff5460;
+    border: 1px solid rgba(196, 32, 43, 0.45);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  .ast-final h2 {
+    font-size: clamp(34px, 5vw, 60px);
+    line-height: 1.04;
+    margin: 0 0 22px;
+    color: #ffffff;
+    letter-spacing: -1.6px;
+    font-weight: 800;
+  }
+
+  .ast-final h2 em {
+    color: #e3434f;
+    font-style: normal;
+  }
+
+  .ast-final__intro {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #c8c8c8;
+    margin: 0 0 26px;
+    max-width: 540px;
+  }
+
+  .ast-final__price {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .ast-final__price-current {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+  }
+
+  .ast-final__price-compare {
+    font-size: 18px;
+    text-decoration: line-through;
+    color: #888;
+  }
+
+  .ast-final__bullets {
+    display: grid;
+    gap: 11px;
+    margin-bottom: 28px;
+  }
+
+  .ast-final__bullets li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #f0f0f0;
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  .ast-final__bullets .check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #e3434f, #8a1620);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(196, 32, 43, 0.5);
+  }
+
+  .ast-final__bullets .check svg {
+    width: 11px;
+    height: 11px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ast-final__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .ast-final__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 30px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .ast-final__btn--primary {
+    background: linear-gradient(135deg, #e3434f 0%, #c4202b 50%, #8a1620 100%);
+    color: #ffffff;
+    box-shadow: 0 14px 36px rgba(196, 32, 43, 0.5);
+  }
+
+  .ast-final__btn--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 46px rgba(196, 32, 43, 0.62);
+  }
+
+  .ast-final__btn--outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .ast-final__btn--outline:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .ast-final__btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .ast-final__btn:hover svg {
+    transform: translateX(4px);
+  }
+
+  .ast-final__note {
+    margin: 6px 0 0;
+    color: #888;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+  }
+
+  .ast-final__faq {
+    background: #ffffff;
+    color: #14080a;
+    border-radius: 26px;
+    padding: 30px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  }
+
+  .ast-final__faq h3 {
+    font-size: 22px;
+    margin: 0 0 18px;
+    color: #14080a;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+  }
+
+  .ast-final__faq details {
+    border: 1px solid rgba(20, 8, 10, 0.08);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: #faf6f0;
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .ast-final__faq details[open] {
+    border-color: rgba(196, 32, 43, 0.4);
+    background: #fff5f6;
+  }
+
+  .ast-final__faq summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #14080a;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .ast-final__faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .ast-final__faq summary::after {
+    content: "+";
+    font-size: 22px;
+    color: #c4202b;
+    font-weight: 700;
+    transition: transform 0.25s ease;
+  }
+
+  .ast-final__faq details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .ast-final__faq p {
+    margin: 12px 0 0;
+    color: #5a4d4f;
+    line-height: 1.55;
+    font-size: 14.5px;
+  }
+
+  @media (max-width: 900px) {
+    .ast-final__container {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .ast-final__buttons {
+      flex-direction: column;
+    }
+    .ast-final__btn {
+      width: 100%;
+    }
+    .ast-final__faq {
+      padding: 24px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="ast-final" id="comprar">
+  <div class="ast-final__container">
+    <div class="ast-final__offer">
+      {%- if section.settings.tag != blank -%}
+        <span class="ast-final__tag">{{ section.settings.tag | escape }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.intro != blank -%}
+        <p class="ast-final__intro">{{ section.settings.intro }}</p>
+      {%- endif -%}
+
+      {%- if product != blank and current_variant != blank -%}
+        <div class="ast-final__price">
+          <span class="ast-final__price-current">{{ current_variant.price | money }}</span>
+          {%- if current_variant.compare_at_price > current_variant.price -%}
+            <span class="ast-final__price-compare">{{ current_variant.compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- assign feature_blocks = section.blocks | where: 'type', 'feature' -%}
+      {%- if feature_blocks.size > 0 -%}
+        <ul class="ast-final__bullets">
+          {%- for block in feature_blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>
+              </span>
+              <span>{{ block.settings.text | escape }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      <div class="ast-final__buttons">
+        {%- if product != blank and current_variant != blank -%}
+          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" style="display:inline-flex;">
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            {%- if section.settings.go_to_checkout -%}
+              <input type="hidden" name="return_to" value="/checkout">
+            {%- endif -%}
+            <button type="submit" class="ast-final__btn ast-final__btn--primary"{% if current_variant.available == false %} disabled{% endif %}>
+              {%- if current_variant.available -%}
+                {{ section.settings.primary_label | default: 'Comprar ahora' | escape }}
+              {%- else -%}
+                Agotado
+              {%- endif -%}
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+        {%- else -%}
+          <a href="{{ section.settings.primary_link | default: '/cart' }}" class="ast-final__btn ast-final__btn--primary">
+            {{ section.settings.primary_label | default: 'Comprar ahora' | escape }}
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.secondary_label != blank -%}
+          <a href="{{ section.settings.secondary_link | default: '#beneficios' }}" class="ast-final__btn ast-final__btn--outline">
+            {{ section.settings.secondary_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <p class="ast-final__note">{{ section.settings.note | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ast-final__faq">
+      {%- if section.settings.faq_heading != blank -%}
+        <h3>{{ section.settings.faq_heading | escape }}</h3>
+      {%- endif -%}
+      {%- assign faq_blocks = section.blocks | where: 'type', 'faq' -%}
+      {%- for block in faq_blocks -%}
+        <details {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question | escape }}</summary>
+          <p>{{ block.settings.answer | escape }}</p>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Astaxanthin · Final",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "tag", "label": "Etiqueta", "default": "Listo para empezar" },
+    { "type": "richtext", "id": "heading", "label": "Título", "default": "<p>Haz de tu bienestar una rutina <em>simple y potente</em></p>" },
+    { "type": "richtext", "id": "intro", "label": "Introducción", "default": "<p>Astaxantina premium de microalgas, en una fórmula concentrada de 12 mg que cabe en un solo softgel al día.</p>" },
+    { "type": "header", "content": "Botones" },
+    { "type": "text", "id": "primary_label", "label": "Botón principal", "default": "Comprar ahora" },
+    { "type": "checkbox", "id": "go_to_checkout", "label": "Ir directo al checkout", "default": false },
+    { "type": "url", "id": "primary_link", "label": "Enlace fallback (si no hay producto)" },
+    { "type": "text", "id": "secondary_label", "label": "Botón secundario", "default": "Ver ingredientes" },
+    { "type": "url", "id": "secondary_link", "label": "Enlace secundario" },
+    { "type": "text", "id": "note", "label": "Nota inferior", "default": "Stock limitado · Pago seguro · Envío rápido" },
+    { "type": "header", "content": "Preguntas frecuentes" },
+    { "type": "text", "id": "faq_heading", "label": "Título FAQ", "default": "Preguntas frecuentes" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Beneficio (✓)",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texto", "default": "12 mg de astaxantina por softgel" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "Pregunta frecuente",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta", "default": "¿Cuántas cápsulas vienen?" },
+        { "type": "textarea", "id": "answer", "label": "Respuesta", "default": "120 softgels por envase, suficiente para 4 meses." }
+      ]
+    }
+  ],
+  "max_blocks": 16,
+  "presets": [
+    {
+      "name": "Astaxanthin · Final",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "12 mg de astaxantina por softgel" } },
+        { "type": "feature", "settings": { "text": "Hecho de microalgas" } },
+        { "type": "feature", "settings": { "text": "120 softgels por envase" } },
+        { "type": "feature", "settings": { "text": "GMO free · Gluten free · Lab tested" } },
+        { "type": "faq", "settings": { "question": "¿Cuántas cápsulas vienen?", "answer": "120 softgels por envase, suficiente para 4 meses tomando 1 al día." } },
+        { "type": "faq", "settings": { "question": "¿Es vegano?", "answer": "La astaxantina proviene de microalgas y la cápsula es de origen vegetal, sí es apto para veganos." } },
+        { "type": "faq", "settings": { "question": "¿Tiene gluten?", "answer": "No. La fórmula es gluten free, sin transgénicos y sin lactosa." } },
+        { "type": "faq", "settings": { "question": "¿Cómo se toma?", "answer": "1 softgel al día, idealmente acompañado de una comida que contenga grasas para mejor absorción." } },
+        { "type": "faq", "settings": { "question": "¿Es seguro?", "answer": "En las dosis recomendadas se considera segura. No exceder la dosis diaria. Si tomas medicación o estás embarazada, consulta a un profesional de salud." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

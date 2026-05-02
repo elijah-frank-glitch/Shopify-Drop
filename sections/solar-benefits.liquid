@@ -1,3 +1,4 @@
+{%- if product.handle contains 'lampara' or product.handle contains 'solar' -%}
 {%- style -%}
   #shopify-section-{{ section.id }} {
     --warm: #ffcf4d;
@@ -204,6 +205,7 @@
     </div>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

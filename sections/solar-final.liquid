@@ -1,6 +1,7 @@
 {%- liquid
   assign current_variant = product.selected_or_first_available_variant
 -%}
+{%- if product.handle contains 'lampara' or product.handle contains 'solar' -%}
 {%- style -%}
   .solar-final {
     background: radial-gradient(circle at top, #1f3b57 0%, #07111c 48%, #02060a 100%);
@@ -360,6 +361,7 @@
     </div>
   </div>
 </section>
+{%- endif -%}
 
 {% schema %}
 {

@@ -2,6 +2,7 @@
   assign step_index = 0
   assign place_index = 0
 -%}
+{%- if product.handle contains 'lampara' or product.handle contains 'solar' -%}
 {%- style -%}
   .solar-install {
     background: #ffffff;
@@ -272,6 +273,7 @@
     });
   })();
 </script>
+{%- endif -%}
 
 {% schema %}
 {

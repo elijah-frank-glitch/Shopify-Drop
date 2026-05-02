@@ -1,3 +1,4 @@
+{%- if product.handle contains 'lampara' or product.handle contains 'solar' -%}
 {%- style -%}
   .solar-weather {
     background: linear-gradient(135deg, #07111c 0%, #10263a 52%, #07111c 100%);
@@ -256,6 +257,7 @@
     });
   })();
 </script>
+{%- endif -%}
 
 {% schema %}
 {
